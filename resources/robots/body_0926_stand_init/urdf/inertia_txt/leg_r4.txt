@@ -1,0 +1,33 @@
+Mass properties of right_calf
+     Configuration: Default
+     Coordinate system: base_cord
+
+The center of mass and the moments of inertia are output in the coordinate system of full_body
+Mass = 0.257803 kilograms
+
+Volume = 0.000258 cubic meters
+
+Surface area = 0.112043 square meters
+
+Center of mass: ( meters )
+	X = -0.0023
+	Y = -0.094813
+	Z = -0.33575
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = ( 0.057367,  0.023493,  0.998077)   	Px = 0.000253
+	 Iy = ( 0.009078,  0.999669, -0.024052)   	Py = 0.000658
+	 Iz = (-0.998312,  0.01044,  0.057134)   	Pz = 0.000745
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.000744	Lxy = 1e-06	Lxz = 2.8e-05
+	Lyx = 1e-06	Lyy = 0.000658	Lyz = 9e-06
+	Lzx = 2.8e-05	Lzy = 9e-06	Lzz = 0.000255
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.032123	Ixy = 5.8e-05	Ixz = 0.000227
+	Iyx = 5.8e-05	Iyy = 0.029721	Iyz = 0.008216
+	Izx = 0.000227	Izy = 0.008216	Izz = 0.002573

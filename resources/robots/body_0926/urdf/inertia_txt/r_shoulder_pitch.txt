@@ -1,0 +1,33 @@
+Mass properties of right_shoulder_pitch
+    Configuration: Default
+    Coordinate system: base_cord
+
+The center of mass and the moments of inertia are output in the coordinate system of full_body
+Mass = 0.141055 kilograms
+
+Volume = 0.000141 cubic meters
+
+Surface area = 0.049801 square meters
+
+Center of mass: ( meters )
+	X = -0.002926
+	Y = -0.186418
+	Z = 0.192284
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = (-0.150453,  0.988617,  0.000958)   	Px = 6.3e-05
+	 Iy = (-0.988073, -0.150402,  0.033038)   	Py = 8e-05
+	 Iz = ( 0.032806,  0.004024,  0.999454)   	Pz = 8.2e-05
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 8e-05	Lxy = -3e-06	Lxz = 0
+	Lyx = -3e-06	Lyy = 6.3e-05	Lyz = 0
+	Lzx = 0	Lzy = 0	Lzz = 8.2e-05
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.010197	Ixy = 7.4e-05	Ixz = -7.9e-05
+	Iyx = 7.4e-05	Iyy = 0.005279	Iyz = -0.005056
+	Izx = -7.9e-05	Izy = -0.005056	Izz = 0.004985

@@ -175,8 +175,12 @@ class LeggedRobotCfg(BaseConfig):
     # viewer camera:
     class viewer:
         ref_env = 0
-        pos = [10, 0, 6]  # [m]
-        lookat = [11., 5, 3.]  # [m]
+        # pos = [10, 0, 6]  # [m]
+        # lookat = [11., 5, 3.]  # [m]
+
+        # closer camera for a zoom-in view
+        pos = [1.5, 1.5, 0.6]    # camera position (x, y, z) in meters
+        lookat = [0.0, 0.0, 0.25] # point to look at (near robot base)
 
     class sim:
         dt =  0.005

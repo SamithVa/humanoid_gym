@@ -128,9 +128,9 @@ class XBotLFreeEnv(LeggedRobot):
         scale_2 = 2 * scale_1
         # left foot stance phase set to default joint pos
         sin_pos_l[sin_pos_l > 0] = 0
-        self.ref_dof_pos[:, 2] = sin_pos_l * scale_1
-        self.ref_dof_pos[:, 3] = sin_pos_l * scale_2
-        self.ref_dof_pos[:, 4] = sin_pos_l * scale_1
+        self.ref_dof_pos[:, 2] = sin_pos_l * scale_1 # left_leg_pitch_joint
+        self.ref_dof_pos[:, 3] = sin_pos_l * scale_2 # left_knee_joint
+        self.ref_dof_pos[:, 4] = sin_pos_l * scale_1 # left_ankle_pitch_joint
         # right foot stance phase set to default joint pos
         sin_pos_r[sin_pos_r < 0] = 0
         self.ref_dof_pos[:, 8] = sin_pos_r * scale_1
@@ -450,19 +450,23 @@ class XBotLFreeEnv(LeggedRobot):
         """
         # Compute feet contact mask
         contact = self.contact_forces[:, self.feet_indices, 2] > 5.
+        # print("Contact", contact) # Debugging
 
         # Get the z-position of the feet and compute the change in z-position
         feet_z = self.rigid_state[:, self.feet_indices, 2] - 0.05
         delta_z = feet_z - self.last_feet_z
         self.feet_height += delta_z
         self.last_feet_z = feet_z
+        # print("Feet Height:", self.feet_height)  # Debugging
 
         # Compute swing mask
         swing_mask = 1 - self._get_gait_phase()
 
         # feet height should be closed to target feet height at the peak
         rew_pos = torch.abs(self.feet_height - self.cfg.rewards.target_feet_height) < 0.01
+        # print("Rew Pos (before swing mask):", rew_pos)  # Debugging
         rew_pos = torch.sum(rew_pos * swing_mask, dim=1)
+        # print("Rew Pos (after swing mask):", rew_pos)  # Debugging
         self.feet_height *= ~contact
         return rew_pos
 

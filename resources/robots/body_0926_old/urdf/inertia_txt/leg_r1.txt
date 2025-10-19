@@ -1,0 +1,33 @@
+Mass properties of right_hip_lr_motor
+     Configuration: Default
+     Coordinate system: base_cord
+
+The center of mass and the moments of inertia are output in the coordinate system of full_body
+Mass = 0.253408 kilograms
+
+Volume = 0.000253 cubic meters
+
+Surface area = 0.080781 square meters
+
+Center of mass: ( meters )
+	X = 0.001971
+	Y = -0.095068
+	Z = -0.062147
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = (-0.192978,  0.971914, -0.134694)   	Px = 0.00018
+	 Iy = (-0.320741, -0.192217, -0.927458)   	Py = 0.000183
+	 Iz = (-0.9273, -0.135777,  0.348826)   	Pz = 0.000186
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.000186	Lxy = -1e-06	Lxz = 1e-06
+	Lyx = -1e-06	Lyy = 0.00018	Lyz = 0
+	Lzx = 1e-06	Lzy = 0	Lzz = 0.000184
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.003455	Ixy = -4.8e-05	Ixz = -3e-05
+	Iyx = -4.8e-05	Iyy = 0.00116	Iyz = 0.001497
+	Izx = -3e-05	Izy = 0.001497	Izz = 0.002475

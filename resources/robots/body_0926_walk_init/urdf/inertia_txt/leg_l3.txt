@@ -1,0 +1,33 @@
+Mass properties of left_thigh
+     Configuration: Default
+     Coordinate system: base_cord
+
+The center of mass and the moments of inertia are output in the coordinate system of full_body
+Mass = 0.460278 kilograms
+
+Volume = 0.00046 cubic meters
+
+Surface area = 0.144951 square meters
+
+Center of mass: ( meters )
+	X = -0.000219
+	Y = 0.096349
+	Z = -0.206126
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = (-0.008654, -0.02286,  0.999701)   	Px = 0.000334
+	 Iy = (-0.059245,  0.997994,  0.022309)   	Py = 0.001194
+	 Iz = (-0.998206, -0.059035, -0.009991)   	Pz = 0.001205
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.001205	Lxy = 0	Lxz = -8e-06
+	Lyx = 0	Lyy = 0.001194	Lyz = -2e-05
+	Lzx = -8e-06	Lzy = -2e-05	Lzz = 0.000334
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.025034	Ixy = -1e-05	Ixz = 1.3e-05
+	Iyx = -1e-05	Iyy = 0.02075	Iyz = -0.009161
+	Izx = 1.3e-05	Izy = -0.009161	Izz = 0.004607

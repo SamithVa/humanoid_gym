@@ -1,0 +1,33 @@
+Mass properties of right_shoulder_yaw
+     Configuration: Default
+     Coordinate system: base_cord
+
+The center of mass and the moments of inertia are output in the coordinate system of full_body
+Mass = 0.318563 kilograms
+
+Volume = 0.000319 cubic meters
+
+Surface area = 0.106923 square meters
+
+Center of mass: ( meters )
+	X = -0.001085
+	Y = -0.19074
+	Z = 0.049101
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = (-0.008655, -0.011423,  0.999897)   	Px = 0.000212
+	 Iy = ( 0.9999,  0.011058,  0.008781)   	Py = 0.000603
+	 Iz = (-0.011157,  0.999874,  0.011326)   	Pz = 0.000623
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.000603	Lxy = 0	Lxz = -3e-06
+	Lyx = 0	Lyy = 0.000623	Lyz = -5e-06
+	Lzx = -3e-06	Lzy = -5e-06	Lzz = 0.000212
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.012961	Ixy = 6.6e-05	Ixz = -2e-05
+	Iyx = 6.6e-05	Iyy = 0.001391	Iyz = -0.002988
+	Izx = -2e-05	Izy = -0.002988	Izz = 0.011802
