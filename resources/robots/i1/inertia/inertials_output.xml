@@ -1,0 +1,339 @@
+<?xml version="1.0"?>
+<!-- Inertial properties extracted from CAD models -->
+<!-- Total joints: 21 -->
+
+<!-- head_joint -->
+    <inertial>
+        <origin
+            xyz="-0.001189 0.010143 0.391397"
+            rpy="0 0 0" />
+        <mass
+            value="0.328819" />
+        <inertia
+            ixx="0.000767"
+            ixy="-2e-06"
+            ixz="8e-06"
+            iyy="0.000736"
+            iyz="-9.8e-05"
+            izz="0.00024" />
+    </inertial>
+
+<!-- imu_joint -->
+    <inertial>
+        <origin
+            xyz="0.0035 3.7e-05 0.326721"
+            rpy="0 0 0" />
+        <mass
+            value="0" />
+        <inertia
+            ixx="1e-06"
+            ixy="-0.0"
+            ixz="-0.0"
+            iyy="1e-06"
+            iyz="-0.0"
+            izz="2e-06" />
+    </inertial>
+
+<!-- l_arm_pitch_joint -->
+    <inertial>
+        <origin
+            xyz="0.187499 0.007138 -0.045974"
+            rpy="0 0 0" />
+        <mass
+            value="0.347006" />
+        <inertia
+            ixx="0.001003"
+            ixy="1e-06"
+            ixz="-7.1e-05"
+            iyy="0.000986"
+            iyz="-5.4e-05"
+            izz="0.000228" />
+    </inertial>
+
+<!-- l_shoulder_pitch_joint -->
+    <inertial>
+        <origin
+            xyz="0.18901 0.006184 0.254442"
+            rpy="0 0 0" />
+        <mass
+            value="0.338408" />
+        <inertia
+            ixx="0.000132"
+            ixy="2e-06"
+            ixz="-0.0"
+            iyy="0.000163"
+            iyz="-0.0"
+            izz="0.000153" />
+    </inertial>
+
+<!-- l_shoulder_roll_joint -->
+    <inertial>
+        <origin
+            xyz="0.190962 0.00996 0.209704"
+            rpy="0 0 0" />
+        <mass
+            value="0.123182" />
+        <inertia
+            ixx="0.000138"
+            ixy="-0.0"
+            ixz="-0.0"
+            iyy="0.00012"
+            iyz="-1.2e-05"
+            izz="0.000113" />
+    </inertial>
+
+<!-- l_shoulder_yaw_joint -->
+    <inertial>
+        <origin
+            xyz="0.189903 0.010603 0.111571"
+            rpy="0 0 0" />
+        <mass
+            value="0.509094" />
+        <inertia
+            ixx="0.001007"
+            ixy="1e-06"
+            ixz="-2.2e-05"
+            iyy="0.000984"
+            iyz="2.1e-05"
+            izz="0.000262" />
+    </inertial>
+
+<!-- leg_l1_joint -->
+    <inertial>
+        <origin
+            xyz="0.095268 -0.004066 -6.7e-05"
+            rpy="0 0 0" />
+        <mass
+            value="0.510247" />
+        <inertia
+            ixx="0.000285"
+            ixy="2e-06"
+            ixz="-0.0"
+            iyy="0.000292"
+            iyz="1e-06"
+            izz="0.000289" />
+    </inertial>
+
+<!-- leg_l2_joint -->
+    <inertial>
+        <origin
+            xyz="0.095562 0.00202 -0.03582"
+            rpy="0 0 0" />
+        <mass
+            value="0.095898" />
+        <inertia
+            ixx="0.00016"
+            ixy="-0.0"
+            ixz="-0.0"
+            iyy="9.9e-05"
+            iyz="-7e-06"
+            izz="0.000121" />
+    </inertial>
+
+<!-- leg_l3_joint -->
+    <inertial>
+        <origin
+            xyz="0.097531 0.000116 -0.144577"
+            rpy="0 0 0" />
+        <mass
+            value="0.97356" />
+        <inertia
+            ixx="0.002491"
+            ixy="-1e-06"
+            ixz="9.3e-05"
+            iyy="0.002505"
+            iyz="-8e-06"
+            izz="0.000548" />
+    </inertial>
+
+<!-- leg_l4_joint -->
+    <inertial>
+        <origin
+            xyz="0.092903 0.001218 -0.272377"
+            rpy="0 0 0" />
+        <mass
+            value="0.514444" />
+        <inertia
+            ixx="0.000765"
+            ixy="-2e-06"
+            ixz="1.1e-05"
+            iyy="0.000849"
+            iyz="2.9e-05"
+            izz="0.000359" />
+    </inertial>
+
+<!-- leg_l5_joint -->
+    <inertial>
+        <origin
+            xyz="0.09555 -0.014513 -0.404815"
+            rpy="0 0 0" />
+        <mass
+            value="0.136733" />
+        <inertia
+            ixx="0.000298"
+            ixy="-0.0"
+            ixz="-0.0"
+            iyy="4.9e-05"
+            iyz="-2.1e-05"
+            izz="0.000318" />
+    </inertial>
+
+<!-- leg_r1_joint -->
+    <inertial>
+        <origin
+            xyz="-0.095283 -0.004066 -7.4e-05"
+            rpy="0 0 0" />
+        <mass
+            value="0.510049" />
+        <inertia
+            ixx="0.000285"
+            ixy="-2e-06"
+            ixz="-0.0"
+            iyy="0.000291"
+            iyz="1e-06"
+            izz="0.000288" />
+    </inertial>
+
+<!-- leg_r2_joint -->
+    <inertial>
+        <origin
+            xyz="-0.095538 0.00202 -0.035822"
+            rpy="0 0 0" />
+        <mass
+            value="0.095898" />
+        <inertia
+            ixx="0.00016"
+            ixy="-0.0"
+            ixz="-0.0"
+            iyy="9.9e-05"
+            iyz="-7e-06"
+            izz="0.000121" />
+    </inertial>
+
+<!-- leg_r3_joint -->
+    <inertial>
+        <origin
+            xyz="-0.097531 -9.9e-05 -0.144631"
+            rpy="0 0 0" />
+        <mass
+            value="0.97356" />
+        <inertia
+            ixx="0.002491"
+            ixy="1e-06"
+            ixz="-9.3e-05"
+            iyy="0.002505"
+            iyz="4e-06"
+            izz="0.000548" />
+    </inertial>
+
+<!-- leg_r4_joint -->
+    <inertial>
+        <origin
+            xyz="-0.092854 0.001151 -0.27243"
+            rpy="0 0 0" />
+        <mass
+            value="0.514444" />
+        <inertia
+            ixx="0.000765"
+            ixy="3e-06"
+            ixz="-1.1e-05"
+            iyy="0.000849"
+            iyz="2.9e-05"
+            izz="0.000359" />
+    </inertial>
+
+<!-- leg_r5_joint -->
+    <inertial>
+        <origin
+            xyz="-0.0955 -0.014513 -0.404868"
+            rpy="0 0 0" />
+        <mass
+            value="0.136733" />
+        <inertia
+            ixx="0.000298"
+            ixy="-0.0"
+            ixz="-0.0"
+            iyy="4.9e-05"
+            iyz="-2.1e-05"
+            izz="0.000318" />
+    </inertial>
+
+<!-- loin_yaw_joint -->
+    <inertial>
+        <origin
+            xyz="0.0 -0.000126 0.008359"
+            rpy="0 0 0" />
+        <mass
+            value="1.187105" />
+        <inertia
+            ixx="0.001181"
+            ixy="-0.0"
+            ixz="-0.0"
+            iyy="0.00213"
+            iyz="-5e-06"
+            izz="0.002038" />
+    </inertial>
+
+<!-- r_arm_pitch_joint -->
+    <inertial>
+        <origin
+            xyz="-0.187541 -0.003892 -0.046217"
+            rpy="0 0 0" />
+        <mass
+            value="0.347026" />
+        <inertia
+            ixx="0.001003"
+            ixy="-1e-06"
+            ixz="7.2e-05"
+            iyy="0.000986"
+            iyz="-5.3e-05"
+            izz="0.000228" />
+    </inertial>
+
+<!-- r_shoulder_pitch_joint -->
+    <inertial>
+        <origin
+            xyz="-0.189099 0.002136 0.254284"
+            rpy="0 0 0" />
+        <mass
+            value="0.338408" />
+        <inertia
+            ixx="0.000132"
+            ixy="-3e-06"
+            ixz="-0.0"
+            iyy="0.000162"
+            iyz="-0.0"
+            izz="0.000153" />
+    </inertial>
+
+<!-- r_shoulder_roll_joint -->
+    <inertial>
+        <origin
+            xyz="-0.191114 0.004168 0.209436"
+            rpy="0 0 0" />
+        <mass
+            value="0.123184" />
+        <inertia
+            ixx="0.000138"
+            ixy="-0.0"
+            ixz="-0.0"
+            iyy="0.000119"
+            iyz="-1.2e-05"
+            izz="0.000114" />
+    </inertial>
+
+<!-- r_shoulder_yaw_joint -->
+    <inertial>
+        <origin
+            xyz="-0.190025 0.001119 0.111343"
+            rpy="0 0 0" />
+        <mass
+            value="0.50875" />
+        <inertia
+            ixx="0.001007"
+            ixy="-0.0"
+            ixz="2.2e-05"
+            iyy="0.000985"
+            iyz="-6e-06"
+            izz="0.000261" />
+    </inertial>

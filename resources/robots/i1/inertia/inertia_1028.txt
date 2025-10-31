@@ -1,0 +1,764 @@
+loin_yaw_joint
+Mass properties of connector
+     Configuration: Default
+     Coordinate system: -- default --
+
+Mass = 1.187105 kilograms
+
+Volume = 0.000674 cubic meters
+
+Surface area = 0.211837 square meters
+
+Center of mass: ( meters )
+	X = 0.000000
+	Y = -0.000126
+	Z = 0.008359
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = ( 1.000000,  0.000001,  0.000018)   	Px = 0.001181
+	 Iy = ( 0.000018, -0.051229, -0.998687)   	Py = 0.002038
+	 Iz = ( 0.000000,  0.998687, -0.051229)   	Pz = 0.002130
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.001181	Lxy = 0.000000	Lxz = 0.000000
+	Lyx = 0.000000	Lyy = 0.002130	Lyz = 0.000005
+	Lzx = 0.000000	Lzy = 0.000005	Lzz = 0.002038
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.001264	Ixy = 0.000000	Ixz = 0.000000
+	Iyx = 0.000000	Iyy = 0.002212	Iyz = 0.000003
+	Izx = 0.000000	Izy = 0.000003	Izz = 0.002038
+
+One or more components have overridden mass properties:
+	DM_4340__3D20240822_1_复件 复件 0_0-00(2)_0-00全<1><Default>
+	DM_4340__3D20240822_1_复件 复件 0_0-00(2)_0-00全<2><Default>
+
+leg_l1_joint
+Mass properties of left_hip_lr_motor
+     Configuration: Default
+     Coordinate system: -- default --
+
+Mass = 0.510247 kilograms
+
+Volume = 0.000254 cubic meters
+
+Surface area = 0.080884 square meters
+
+Center of mass: ( meters )
+	X = 0.095268
+	Y = -0.004066
+	Z = -0.000067
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = ( 0.964897, -0.242124,  0.101736)   	Px = 0.000285
+	 Iy = ( 0.161346,  0.240845, -0.957059)   	Py = 0.000288
+	 Iz = ( 0.207224,  0.939877,  0.271457)   	Pz = 0.000292
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.000285	Lxy = -0.000002	Lxz = 0.000000
+	Lyx = -0.000002	Lyy = 0.000292	Lyz = -0.000001
+	Lzx = 0.000000	Lzy = -0.000001	Lzz = 0.000289
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.000294	Ixy = -0.000199	Ixz = -0.000003
+	Iyx = -0.000199	Iyy = 0.004923	Iyz = -0.000001
+	Izx = -0.000003	Izy = -0.000001	Izz = 0.004928
+
+One or more components have overridden mass properties:
+	DM_4340__3D20240822_1__0013_复件 _0012_0-00(2)_0-00全<1><Default>
+
+leg_l2_joint
+Mass properties of left_hip_lr_connector
+     Configuration: Default
+     Coordinate system: -- default --
+
+The center of mass and the moments of inertia are output in the coordinate system of full_body
+Mass = 0.095898 kilograms
+
+Volume = 0.000096 cubic meters
+
+Surface area = 0.043000 square meters
+
+Center of mass: ( meters )
+	X = 0.095562
+	Y = 0.002020
+	Z = -0.035820
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = ( 0.000601,  0.958512,  0.285051)   	Px = 0.000096
+	 Iy = ( 0.000899, -0.285052,  0.958512)   	Py = 0.000124
+	 Iz = ( 0.999999, -0.000320, -0.001033)   	Pz = 0.000160
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.000160	Lxy = 0.000000	Lxz = 0.000000
+	Lyx = 0.000000	Lyy = 0.000099	Lyz = 0.000007
+	Lzx = 0.000000	Lzy = 0.000007	Lzz = 0.000121
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.000284	Ixy = 0.000019	Ixz = -0.000328
+	Iyx = 0.000019	Iyy = 0.001097	Iyz = 0.000000
+	Izx = -0.000328	Izy = 0.000000	Izz = 0.000997
+
+leg_l3_joint
+Mass properties of left_thigh
+     Configuration: Default
+     Coordinate system: -- default --
+
+Mass = 0.973560 kilograms
+
+Volume = 0.000460 cubic meters
+
+Surface area = 0.144951 square meters
+
+Center of mass: ( meters )
+	X = 0.097531
+	Y = 0.000116
+	Z = -0.144577
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = (-0.047670,  0.004157,  0.998854)   	Px = 0.000543
+	 Iy = ( 0.993244,  0.106121,  0.046961)   	Py = 0.002495
+	 Iz = (-0.105804,  0.994345, -0.009188)   	Pz = 0.002505
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.002491	Lxy = 0.000001	Lxz = -0.000093
+	Lyx = 0.000001	Lyy = 0.002505	Lyz = 0.000008
+	Lzx = -0.000093	Lzy = 0.000008	Lzz = 0.000548
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.022841	Ixy = 0.000012	Ixz = -0.013821
+	Iyx = 0.000012	Iyy = 0.032116	Iyz = -0.000008
+	Izx = -0.013821	Izy = -0.000008	Izz = 0.009809
+
+One or more components have overridden mass properties:
+	复件 DM_4340__3D20240822_1_复件 装配体4_复件 _0012_0-00(2)_0-00全<1><Default>
+	复件 DM_4340__3D20240822_1_复件 装配体4_复件 _0012_0-00(2)_0-00全<2><Default>
+
+leg_l4_joint
+Mass properties of left_calf
+     Configuration: Default
+     Coordinate system: -- default --
+
+Mass = 0.514444 kilograms
+
+Volume = 0.000258 cubic meters
+
+Surface area = 0.112043 square meters
+
+Center of mass: ( meters )
+	X = 0.092903
+	Y = 0.001218
+	Z = -0.272377
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = (-0.026758, -0.059904,  0.997845)   	Px = 0.000357
+	 Iy = ( 0.999550,  0.011903,  0.027518)   	Py = 0.000765
+	 Iz = (-0.013526,  0.998133,  0.059559)   	Pz = 0.000851
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.000765	Lxy = 0.000002	Lxz = -0.000011
+	Lyx = 0.000002	Lyy = 0.000849	Lyz = -0.000029
+	Lzx = -0.000011	Lzy = -0.000029	Lzz = 0.000359
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.038932	Ixy = 0.000060	Ixz = -0.013029
+	Iyx = 0.000060	Iyy = 0.043455	Iyz = -0.000200
+	Izx = -0.013029	Izy = -0.000200	Izz = 0.004800
+
+One or more components have overridden mass properties:
+	复件 DM_4340__3D20240822_1_复件 装配体4_复件 _0012_0-00(2)_0-00全<1><Default>
+
+leg_l5_joint
+Mass properties of left_foot
+     Configuration: Default
+     Coordinate system: -- default --
+
+The center of mass and the moments of inertia are output in the coordinate system of full_body
+Mass = 0.136733 kilograms
+
+Volume = 0.000137 cubic meters
+
+Surface area = 0.038512 square meters
+
+Center of mass: ( meters )
+	X = 0.095550
+	Y = -0.014513
+	Z = -0.404815
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = (-0.000005,  0.997052,  0.076729)   	Px = 0.000047
+	 Iy = (-1.000000, -0.000004, -0.000002)   	Py = 0.000298
+	 Iz = (-0.000002, -0.076729,  0.997052)   	Pz = 0.000319
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.000298	Lxy = 0.000000	Lxz = 0.000000
+	Lyx = 0.000000	Lyy = 0.000049	Lyz = 0.000021
+	Lzx = 0.000000	Lzy = 0.000021	Lzz = 0.000318
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.022734	Ixy = -0.000190	Ixz = -0.005289
+	Iyx = -0.000190	Iyy = 0.023704	Iyz = 0.000824
+	Izx = -0.005289	Izy = 0.000824	Izz = 0.001595
+
+leg_r1_joint
+Mass properties of right_hip_lr_motor
+     Configuration: Default
+     Coordinate system: -- default --
+
+Mass = 0.510049 kilograms
+
+Volume = 0.000253 cubic meters
+
+Surface area = 0.080781 square meters
+
+Center of mass: ( meters )
+	X = -0.095283
+	Y = -0.004066
+	Z = -0.000074
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = ( 0.953542,  0.253233, -0.163191)   	Px = 0.000285
+	 Iy = (-0.222641,  0.227425, -0.948003)   	Py = 0.000288
+	 Iz = (-0.202952,  0.940293,  0.273239)   	Pz = 0.000292
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.000285	Lxy = 0.000002	Lxz = 0.000000
+	Lyx = 0.000002	Lyy = 0.000291	Lyz = -0.000001
+	Lzx = 0.000000	Lzy = -0.000001	Lzz = 0.000288
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.000293	Ixy = 0.000199	Ixz = 0.000003
+	Iyx = 0.000199	Iyy = 0.004922	Iyz = -0.000001
+	Izx = 0.000003	Izy = -0.000001	Izz = 0.004927
+
+One or more components have overridden mass properties:
+	DM_4340__3D20240822_1__0009_复件 _0008_0-00(2)_0-00全<1><Default>
+
+leg_r2_joint
+Mass properties of right_hip_lr_connector
+     Configuration: Default
+     Coordinate system: -- default --
+
+The center of mass and the moments of inertia are output in the coordinate system of full_body
+Mass = 0.095898 kilograms
+
+Volume = 0.000096 cubic meters
+
+Surface area = 0.043000 square meters
+
+Center of mass: ( meters )
+	X = -0.095538
+	Y = 0.002020
+	Z = -0.035822
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = ( 0.000601,  0.958456,  0.285240)   	Px = 0.000096
+	 Iy = ( 0.000899, -0.285240,  0.958456)   	Py = 0.000124
+	 Iz = ( 0.999999, -0.000320, -0.001033)   	Pz = 0.000160
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.000160	Lxy = 0.000000	Lxz = 0.000000
+	Lyx = 0.000000	Lyy = 0.000099	Lyz = 0.000007
+	Lzx = 0.000000	Lzy = 0.000007	Lzz = 0.000121
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.000284	Ixy = -0.000018	Ixz = 0.000328
+	Iyx = -0.000018	Iyy = 0.001097	Iyz = 0.000000
+	Izx = 0.000328	Izy = 0.000000	Izz = 0.000997
+
+leg_r3_joint
+Mass properties of right_thigh
+     Configuration: Default
+     Coordinate system: -- default --
+
+Mass = 0.973560 kilograms
+
+Volume = 0.000460 cubic meters
+
+Surface area = 0.144951 square meters
+
+Center of mass: ( meters )
+	X = -0.097531
+	Y = -0.000099
+	Z = -0.144631
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = ( 0.047663, -0.002280,  0.998861)   	Px = 0.000544
+	 Iy = ( 0.994391, -0.094418, -0.047665)   	Py = 0.002496
+	 Iz = ( 0.094419,  0.995530, -0.002233)   	Pz = 0.002505
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.002491	Lxy = -0.000001	Lxz = 0.000093
+	Lyx = -0.000001	Lyy = 0.002505	Lyz = -0.000004
+	Lzx = 0.000093	Lzy = -0.000004	Lzz = 0.000548
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.022856	Ixy = 0.000008	Ixz = 0.013826
+	Iyx = 0.000008	Iyy = 0.032131	Iyz = 0.000010
+	Izx = 0.013826	Izy = 0.000010	Izz = 0.009809
+
+One or more components have overridden mass properties:
+	复件 DM_4340__3D20240822_1_复件 装配体2_复件 _0008_0-00(2)_0-00全<1><Default>@right_knee<1><Default>
+	复件 DM_4340__3D20240822_1_复件 装配体2_复件 _0008_0-00(2)_0-00全<2><Default>@right_knee<1><Default>
+
+leg_r4_joint
+Mass properties of right_calf
+     Configuration: Default
+     Coordinate system: -- default --
+
+Mass = 0.514444 kilograms
+
+Volume = 0.000258 cubic meters
+
+Surface area = 0.112043 square meters
+
+Center of mass: ( meters )
+	X = -0.092854
+	Y = 0.001151
+	Z = -0.272430
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = ( 0.026852, -0.058902,  0.997903)   	Px = 0.000357
+	 Iy = ( 0.999264, -0.025758, -0.028409)   	Py = 0.000765
+	 Iz = ( 0.027378,  0.997931,  0.058167)   	Pz = 0.000851
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.000765	Lxy = -0.000003	Lxz = 0.000011
+	Lyx = -0.000003	Lyy = 0.000849	Lyz = -0.000029
+	Lzx = 0.000011	Lzy = -0.000029	Lzz = 0.000359
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.038946	Ixy = -0.000058	Ixz = 0.013024
+	Iyx = -0.000058	Iyy = 0.043466	Iyz = -0.000190
+	Izx = 0.013024	Izy = -0.000190	Izz = 0.004796
+
+One or more components have overridden mass properties:
+	复件 DM_4340__3D20240822_1_复件 装配体4_复件 _0012_0-00(2)_0-00全<1><Default>
+
+leg_r5_joint
+Mass properties of right_foot
+     Configuration: Default
+     Coordinate system: -- default --
+
+The center of mass and the moments of inertia are output in the coordinate system of full_body
+Mass = 0.136733 kilograms
+
+Volume = 0.000137 cubic meters
+
+Surface area = 0.038512 square meters
+
+Center of mass: ( meters )
+	X = -0.095500
+	Y = -0.014513
+	Z = -0.404868
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = (-0.000005,  0.997052,  0.076729)   	Px = 0.000047
+	 Iy = (-1.000000, -0.000004, -0.000002)   	Py = 0.000298
+	 Iz = (-0.000002, -0.076729,  0.997052)   	Pz = 0.000319
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.000298	Lxy = 0.000000	Lxz = 0.000000
+	Lyx = 0.000000	Lyy = 0.000049	Lyz = 0.000021
+	Lzx = 0.000000	Lzy = 0.000021	Lzz = 0.000318
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.022740	Ixy = 0.000190	Ixz = 0.005287
+	Iyx = 0.000190	Iyy = 0.023709	Iyz = 0.000824
+	Izx = 0.005287	Izy = 0.000824	Izz = 0.001593
+
+r_shoulder_pitch_joint
+Mass properties of right_shoulder_pitch
+     Configuration: Default
+     Coordinate system: -- default --
+
+Mass = 0.338408 kilograms
+
+Volume = 0.000141 cubic meters
+
+Surface area = 0.049801 square meters
+
+Center of mass: ( meters )
+	X = -0.189099
+	Y = 0.002136
+	Z = 0.254284
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = ( 0.995434,  0.095406,  0.002981)   	Px = 0.000132
+	 Iy = ( 0.006306, -0.034575, -0.999382)   	Py = 0.000153
+	 Iz = (-0.095244,  0.994838, -0.035019)   	Pz = 0.000163
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.000132	Lxy = 0.000003	Lxz = 0.000000
+	Lyx = 0.000003	Lyy = 0.000162	Lyz = 0.000000
+	Lzx = 0.000000	Lzy = 0.000000	Lzz = 0.000153
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.022015	Ixy = -0.000134	Ixz = -0.016272
+	Iyx = -0.000134	Iyy = 0.034145	Iyz = 0.000184
+	Izx = -0.016272	Izy = 0.000184	Izz = 0.012256
+
+One or more components have overridden mass properties:
+	4310__3D_20240814_1_复件 _A_0-00(2)_0-00<1><Default>
+
+r_shoulder_roll_joint
+Mass properties of right_shoulder_roll
+     Configuration: Default
+     Coordinate system: -- default --
+
+The center of mass and the moments of inertia are output in the coordinate system of full_body
+Mass = 0.123184 kilograms
+
+Volume = 0.000123 cubic meters
+
+Surface area = 0.038361 square meters
+
+Center of mass: ( meters )
+	X = -0.191114
+	Y = 0.004168
+	Z = 0.209436
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = (-0.006830,  0.636814,  0.770987)   	Px = 0.000105
+	 Iy = ( 0.008353, -0.770942,  0.636851)   	Py = 0.000128
+	 Iz = ( 0.999942,  0.010790, -0.000054)   	Pz = 0.000138
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.000138	Lxy = 0.000000	Lxz = 0.000000
+	Lyx = 0.000000	Lyy = 0.000119	Lyz = 0.000012
+	Lzx = 0.000000	Lzy = 0.000012	Lzz = 0.000114
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.005543	Ixy = -0.000098	Ixz = -0.004931
+	Iyx = -0.000098	Iyy = 0.010021	Iyz = 0.000119
+	Izx = -0.004931	Izy = 0.000119	Izz = 0.004616
+
+r_shoulder_yaw_joint
+Mass properties of right_shoulder_yaw
+     Configuration: Default
+     Coordinate system: -- default --
+
+Mass = 0.508750 kilograms
+
+Volume = 0.000319 cubic meters
+
+Surface area = 0.106923 square meters
+
+Center of mass: ( meters )
+	X = -0.190025
+	Y = 0.001119
+	Z = 0.111343
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = (-0.029350,  0.008378,  0.999534)   	Px = 0.000261
+	 Iy = ( 0.007467, -0.999935,  0.008601)   	Py = 0.000985
+	 Iz = ( 0.999541,  0.007716,  0.029285)   	Pz = 0.001008
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.001007	Lxy = 0.000000	Lxz = -0.000022
+	Lyx = 0.000000	Lyy = 0.000985	Lyz = 0.000006
+	Lzx = -0.000022	Lzy = 0.000006	Lzz = 0.000261
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.007315	Ixy = -0.000109	Ixz = -0.010786
+	Iyx = -0.000109	Iyy = 0.025663	Iyz = 0.000069
+	Izx = -0.010786	Izy = 0.000069	Izz = 0.018633
+
+One or more components have overridden mass properties:
+	复件 3507_装配体4_复件 _A_0-00(2)_0-00全<1><Default>
+	复件 3507_装配体4_复件 _A_0-00(2)_0-00全<2><Default>
+
+r_arm_pitch_joint
+Mass properties of right_hand
+     Configuration: Mirrorleft_hand
+     Coordinate system: -- default --
+
+The center of mass and the moments of inertia are output in the coordinate system of full_body
+Mass = 0.347026 kilograms
+
+Volume = 0.000347 cubic meters
+
+Surface area = 0.063405 square meters
+
+Center of mass: ( meters )
+	X = -0.187541
+	Y = -0.003892
+	Z = -0.046217
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = (-0.090631,  0.068486,  0.993527)   	Px = 0.000218
+	 Iy = (-0.262291, -0.964051,  0.042528)   	Py = 0.000988
+	 Iz = ( 0.960723, -0.256739,  0.105336)   	Pz = 0.001011
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.001003	Lxy = 0.000001	Lxz = -0.000072
+	Lyx = 0.000001	Lyy = 0.000986	Lyz = 0.000053
+	Lzx = -0.000072	Lzy = 0.000053	Lzz = 0.000228
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.001750	Ixy = 0.000254	Ixz = 0.002936
+	Iyx = 0.000254	Iyy = 0.013933	Iyz = 0.000115
+	Izx = 0.002936	Izy = 0.000115	Izz = 0.012439
+
+l_shoulder_pitch_joint
+Mass properties of left_shoulder_pitch
+     Configuration: Default
+     Coordinate system: -- default --
+
+Mass = 0.338408 kilograms
+
+Volume = 0.000141 cubic meters
+
+Surface area = 0.049801 square meters
+
+Center of mass: ( meters )
+	X = 0.189010
+	Y = 0.006184
+	Z = 0.254442
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = ( 0.997246, -0.073902, -0.006196)   	Px = 0.000132
+	 Iy = (-0.005970,  0.003278, -0.999977)   	Py = 0.000153
+	 Iz = ( 0.073921,  0.997260,  0.002827)   	Pz = 0.000163
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.000132	Lxy = -0.000002	Lxz = 0.000000
+	Lyx = -0.000002	Lyy = 0.000163	Lyz = 0.000000
+	Lzx = 0.000000	Lzy = 0.000000	Lzz = 0.000153
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.022054	Ixy = 0.000393	Ixz = 0.016275
+	Iyx = 0.000393	Iyy = 0.034161	Iyz = 0.000532
+	Izx = 0.016275	Izy = 0.000532	Izz = 0.012256
+
+One or more components have overridden mass properties:
+	复件 4310__3D_20240814_1_MIR_装配体9_复件 ASM0001_0-00(2)_0-00全<1><Default>
+
+l_shoulder_roll_joint
+Mass properties of left_shoulder_roll
+     Configuration: Default
+     Coordinate system: -- default --
+
+The center of mass and the moments of inertia are output in the coordinate system of full_body
+Mass = 0.123182 kilograms
+
+Volume = 0.000123 cubic meters
+
+Surface area = 0.038361 square meters
+
+Center of mass: ( meters )
+	X = 0.190962
+	Y = 0.009960
+	Z = 0.209704
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = (-0.006493,  0.607079,  0.794615)   	Px = 0.000105
+	 Iy = ( 0.008477, -0.794570,  0.607114)   	Py = 0.000128
+	 Iz = ( 0.999943,  0.010678,  0.000013)   	Pz = 0.000138
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.000138	Lxy = 0.000000	Lxz = 0.000000
+	Lyx = 0.000000	Lyy = 0.000120	Lyz = 0.000012
+	Lzx = 0.000000	Lzy = 0.000012	Lzz = 0.000113
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.005567	Ixy = 0.000234	Ixz = 0.004933
+	Iyx = 0.000234	Iyy = 0.010029	Iyz = 0.000269
+	Izx = 0.004933	Izy = 0.000269	Izz = 0.004618
+
+l_shoulder_yaw_joint
+Mass properties of left_shoulder_yaw
+     Configuration: Default
+     Coordinate system: -- default --
+
+Mass = 0.509094 kilograms
+
+Volume = 0.000319 cubic meters
+
+Surface area = 0.107253 square meters
+
+Center of mass: ( meters )
+	X = 0.189903
+	Y = 0.010603
+	Z = 0.111571
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = ( 0.029591, -0.029027,  0.999141)   	Px = 0.000261
+	 Iy = ( 0.015399, -0.999446, -0.029492)   	Py = 0.000985
+	 Iz = ( 0.999443,  0.016258, -0.029127)   	Pz = 0.001008
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.001007	Lxy = -0.000001	Lxz = 0.000022
+	Lyx = -0.000001	Lyy = 0.000984	Lyz = -0.000021
+	Lzx = 0.000022	Lzy = -0.000021	Lzz = 0.000262
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.007402	Ixy = 0.001024	Ixz = 0.010809
+	Iyx = 0.001024	Iyy = 0.025681	Iyz = 0.000581
+	Izx = 0.010809	Izy = 0.000581	Izz = 0.018679
+
+One or more components have overridden mass properties:
+	fake_motor<1><Default>
+	fake_motor<2><Default>
+
+l_arm_pitch_joint
+Mass properties of left_hand
+     Configuration: Default
+     Coordinate system: -- default --
+
+The center of mass and the moments of inertia are output in the coordinate system of full_body
+Mass = 0.347006 kilograms
+
+Volume = 0.000347 cubic meters
+
+Surface area = 0.063418 square meters
+
+Center of mass: ( meters )
+	X = 0.187499
+	Y = 0.007138
+	Z = -0.045974
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = ( 0.089251,  0.070273,  0.993527)   	Px = 0.000218
+	 Iy = ( 0.279603, -0.959165,  0.042725)   	Py = 0.000988
+	 Iz = ( 0.955958,  0.273980, -0.105255)   	Pz = 0.001011
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.001003	Lxy = -0.000001	Lxz = 0.000071
+	Lyx = -0.000001	Lyy = 0.000986	Lyz = 0.000054
+	Lzx = 0.000071	Lzy = 0.000054	Lzz = 0.000228
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.001754	Ixy = 0.000463	Ixz = -0.002921
+	Iyx = 0.000463	Iyy = 0.013919	Iyz = -0.000059
+	Izx = -0.002921	Izy = -0.000059	Izz = 0.012445
+
+head_joint
+Mass properties of head
+     Configuration: Default
+     Coordinate system: -- default --
+
+Mass = 0.328819 kilograms
+
+Volume = 0.000234 cubic meters
+
+Surface area = 0.166087 square meters
+
+Center of mass: ( meters )
+	X = -0.001189
+	Y = 0.010143
+	Z = 0.391397
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = (-0.013875,  0.186882,  0.982284)   	Px = 0.000221
+	 Iy = (-0.267732, -0.947203,  0.176426)   	Py = 0.000754
+	 Iz = ( 0.963393, -0.260541,  0.063177)   	Pz = 0.000768
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.000767	Lxy = 0.000002	Lxz = -0.000008
+	Lyx = 0.000002	Lyy = 0.000736	Lyz = 0.000098
+	Lzx = -0.000008	Lzy = 0.000098	Lzz = 0.000240
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.051173	Ixy = -0.000002	Ixz = -0.000161
+	Iyx = -0.000002	Iyy = 0.051109	Iyz = 0.001403
+	Izx = -0.000161	Izy = 0.001403	Izz = 0.000274
+
+One or more components have overridden mass properties:
+	fake_motor<2><Default>@neck<1><Default>
+
+imu_joint
+Mass properties of imu
+     Configuration: 默认
+     Coordinate system: -- default --
+
+Density = 1424.501425 kilograms per cubic meter
+
+Mass (user-overridden) = 0.012000 kilograms
+
+Volume = 0.000008 cubic meters
+
+Surface area = 0.002988 square meters
+
+Center of mass: ( meters )
+	X = 0.003500
+	Y = 0.000037
+	Z = 0.326721
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = ( 0.999943,  0.010704,  0.000000)   	Px = 0.000001
+	 Iy = (-0.010704,  0.999943,  0.000000)   	Py = 0.000001
+	 Iz = ( 0.000000,  0.000000,  1.000000)   	Pz = 0.000002
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.000001	Lxy = 0.000000	Lxz = 0.000000
+	Lyx = 0.000000	Lyy = 0.000001	Lyz = 0.000000
+	Lzx = 0.000000	Lzy = 0.000000	Lzz = 0.000002
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.001282	Ixy = 0.000000	Ixz = 0.000014
+	Iyx = 0.000000	Iyy = 0.001282	Iyz = 0.000000
+	Izx = 0.000014	Izy = 0.000000	Izz = 0.000002

@@ -2,8 +2,16 @@
 <!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+
+ 
 <robot
   name="XBot-L">
+  <mujoco>
+        <compiler 
+        meshdir="../meshes/" 
+        balanceinertia="true" 
+        discardvisual="false" />
+  </mujoco>
   <link
     name="base_link">
     <inertial>
@@ -26,7 +34,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/base_link.STL" />
+          filename="../meshes/base_link.STL" />
       </geometry>
       <material
         name="">
@@ -49,7 +57,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/base_link.STL" />
+          filename="../meshes/base_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -76,7 +84,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/neck_base_link.STL" />
+          filename="../meshes/neck_base_link.STL" />
       </geometry>
       <material
         name="">
@@ -90,7 +98,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/neck_base_link.STL" />
+          filename="../meshes/neck_base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -129,7 +137,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/neck_yaw_link.STL" />
+          filename="../meshes/neck_yaw_link.STL" />
       </geometry>
       <material
         name="">
@@ -143,7 +151,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/neck_yaw_link.STL" />
+          filename="../meshes/neck_yaw_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -190,7 +198,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/neck_pitch_link.STL" />
+          filename="../meshes/neck_pitch_link.STL" />
       </geometry>
       <material
         name="">
@@ -204,7 +212,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/neck_pitch_link.STL" />
+          filename="../meshes/neck_pitch_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -252,7 +260,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/realsense_link.STL" />
+          filename="../meshes/realsense_link.STL" />
       </geometry>
       <material
         name="">
@@ -266,7 +274,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/realsense_link.STL" />
+          filename="../meshes/realsense_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -306,7 +314,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_arm_base_link.STL" />
+          filename="../meshes/left_arm_base_link.STL" />
       </geometry>
       <material
         name="">
@@ -320,7 +328,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_arm_base_link.STL" />
+          filename="../meshes/left_arm_base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -359,7 +367,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_shoulder_pitch_link.STL" />
+          filename="../meshes/left_shoulder_pitch_link.STL" />
       </geometry>
       <material
         name="">
@@ -373,7 +381,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_shoulder_pitch_link.STL" />
+          filename="../meshes/left_shoulder_pitch_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -420,7 +428,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_shoulder_roll_link.STL" />
+          filename="../meshes/left_shoulder_roll_link.STL" />
       </geometry>
       <material
         name="">
@@ -434,7 +442,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_shoulder_roll_link.STL" />
+          filename="../meshes/left_shoulder_roll_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -481,7 +489,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_arm_yaw_link.STL" />
+          filename="../meshes/left_arm_yaw_link.STL" />
       </geometry>
       <material
         name="">
@@ -495,7 +503,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_arm_yaw_link.STL" />
+          filename="../meshes/left_arm_yaw_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -542,7 +550,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_elbow_pitch_link.STL" />
+          filename="../meshes/left_elbow_pitch_link.STL" />
       </geometry>
       <material
         name="">
@@ -556,7 +564,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_elbow_pitch_link.STL" />
+          filename="../meshes/left_elbow_pitch_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -603,7 +611,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_elbow_yaw_link.STL" />
+          filename="../meshes/left_elbow_yaw_link.STL" />
       </geometry>
       <material
         name="">
@@ -617,7 +625,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_elbow_yaw_link.STL" />
+          filename="../meshes/left_elbow_yaw_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -664,7 +672,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_wrist_roll_link.STL" />
+          filename="../meshes/left_wrist_roll_link.STL" />
       </geometry>
       <material
         name="">
@@ -678,7 +686,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_wrist_roll_link.STL" />
+          filename="../meshes/left_wrist_roll_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -725,7 +733,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_wrist_yaw_link.STL" />
+          filename="../meshes/left_wrist_yaw_link.STL" />
       </geometry>
       <material
         name="">
@@ -739,7 +747,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_wrist_yaw_link.STL" />
+          filename="../meshes/left_wrist_yaw_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -787,7 +795,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_arm_base_link.STL" />
+          filename="../meshes/right_arm_base_link.STL" />
       </geometry>
       <material
         name="">
@@ -801,7 +809,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_arm_base_link.STL" />
+          filename="../meshes/right_arm_base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -840,7 +848,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_shoulder_pitch_link.STL" />
+          filename="../meshes/right_shoulder_pitch_link.STL" />
       </geometry>
       <material
         name="">
@@ -854,7 +862,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_shoulder_pitch_link.STL" />
+          filename="../meshes/right_shoulder_pitch_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -901,7 +909,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_shoulder_roll_link.STL" />
+          filename="../meshes/right_shoulder_roll_link.STL" />
       </geometry>
       <material
         name="">
@@ -915,7 +923,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_shoulder_roll_link.STL" />
+          filename="../meshes/right_shoulder_roll_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -962,7 +970,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_arm_yaw_link.STL" />
+          filename="../meshes/right_arm_yaw_link.STL" />
       </geometry>
       <material
         name="">
@@ -976,7 +984,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_arm_yaw_link.STL" />
+          filename="../meshes/right_arm_yaw_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -1023,7 +1031,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_elbow_pitch_link.STL" />
+          filename="../meshes/right_elbow_pitch_link.STL" />
       </geometry>
       <material
         name="">
@@ -1037,7 +1045,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_elbow_pitch_link.STL" />
+          filename="../meshes/right_elbow_pitch_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -1084,7 +1092,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_elbow_yaw_link.STL" />
+          filename="../meshes/right_elbow_yaw_link.STL" />
       </geometry>
       <material
         name="">
@@ -1098,7 +1106,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_elbow_yaw_link.STL" />
+          filename="../meshes/right_elbow_yaw_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -1145,7 +1153,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_wrist_roll_link.STL" />
+          filename="../meshes/right_wrist_roll_link.STL" />
       </geometry>
       <material
         name="">
@@ -1159,7 +1167,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_wrist_roll_link.STL" />
+          filename="../meshes/right_wrist_roll_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -1206,7 +1214,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_wrist_yaw_link.STL" />
+          filename="../meshes/right_wrist_yaw_link.STL" />
       </geometry>
       <material
         name="">
@@ -1220,7 +1228,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_wrist_yaw_link.STL" />
+          filename="../meshes/right_wrist_yaw_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -1269,7 +1277,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/waist_yaw_link.STL" />
+          filename="../meshes/waist_yaw_link.STL" />
       </geometry>
       <material
         name="">
@@ -1283,7 +1291,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/waist_yaw_link.STL" />
+          filename="../meshes/waist_yaw_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -1330,7 +1338,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/waist_roll_link.STL" />
+          filename="../meshes/waist_roll_link.STL" />
       </geometry>
       <material
         name="">
@@ -1344,7 +1352,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/waist_roll_link.STL" />
+          filename="../meshes/waist_roll_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -1393,7 +1401,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_leg_roll_link.STL" />
+          filename="../meshes/left_leg_roll_link.STL" />
       </geometry>
       <material
         name="">
@@ -1407,7 +1415,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_leg_roll_link.STL" />
+          filename="../meshes/left_leg_roll_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -1454,7 +1462,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_leg_yaw_link.STL" />
+          filename="../meshes/left_leg_yaw_link.STL" />
       </geometry>
       <material
         name="">
@@ -1468,7 +1476,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_leg_yaw_link.STL" />
+          filename="../meshes/left_leg_yaw_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -1515,7 +1523,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_leg_pitch_link.STL" />
+          filename="../meshes/left_leg_pitch_link.STL" />
       </geometry>
       <material
         name="">
@@ -1529,7 +1537,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_leg_pitch_link.STL" />
+          filename="../meshes/left_leg_pitch_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -1576,7 +1584,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_knee_link.STL" />
+          filename="../meshes/left_knee_link.STL" />
       </geometry>
       <material
         name="">
@@ -1590,7 +1598,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_knee_link.STL" />
+          filename="../meshes/left_knee_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -1637,7 +1645,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_ankle_pitch_link.STL" />
+          filename="../meshes/left_ankle_pitch_link.STL" />
       </geometry>
       <material
         name="">
@@ -1651,7 +1659,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_ankle_pitch_link.STL" />
+          filename="../meshes/left_ankle_pitch_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -1698,7 +1706,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_ankle_roll_link.STL" />
+          filename="../meshes/left_ankle_roll_link.STL" />
       </geometry>
       <material
         name="">
@@ -1721,7 +1729,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_ankle_roll_link.STL" />
+          filename="../meshes/left_ankle_roll_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -1768,7 +1776,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_foot_ee_link.STL" />
+          filename="../meshes/left_foot_ee_link.STL" />
       </geometry>
       <material
         name="">
@@ -1782,7 +1790,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_foot_ee_link.STL" />
+          filename="../meshes/left_foot_ee_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -1821,7 +1829,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_ankle_pitch_motor1_link.STL" />
+          filename="../meshes/left_ankle_pitch_motor1_link.STL" />
       </geometry>
       <material
         name="">
@@ -1835,7 +1843,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_ankle_pitch_motor1_link.STL" />
+          filename="../meshes/left_ankle_pitch_motor1_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -1882,7 +1890,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_ankle_pitch_linkage1_link.STL" />
+          filename="../meshes/left_ankle_pitch_linkage1_link.STL" />
       </geometry>
       <material
         name="">
@@ -1896,7 +1904,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_ankle_pitch_linkage1_link.STL" />
+          filename="../meshes/left_ankle_pitch_linkage1_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -1943,7 +1951,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_ankle_pitch_motor2_link.STL" />
+          filename="../meshes/left_ankle_pitch_motor2_link.STL" />
       </geometry>
       <material
         name="">
@@ -1957,7 +1965,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_ankle_pitch_motor2_link.STL" />
+          filename="../meshes/left_ankle_pitch_motor2_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -2004,7 +2012,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_ankle_pitch_linkage2_link.STL" />
+          filename="../meshes/left_ankle_pitch_linkage2_link.STL" />
       </geometry>
       <material
         name="">
@@ -2018,7 +2026,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_ankle_pitch_linkage2_link.STL" />
+          filename="../meshes/left_ankle_pitch_linkage2_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -2065,7 +2073,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_knee_motor_link.STL" />
+          filename="../meshes/left_knee_motor_link.STL" />
       </geometry>
       <material
         name="">
@@ -2079,7 +2087,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_knee_motor_link.STL" />
+          filename="../meshes/left_knee_motor_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -2126,7 +2134,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_knee_linkage_link.STL" />
+          filename="../meshes/left_knee_linkage_link.STL" />
       </geometry>
       <material
         name="">
@@ -2140,7 +2148,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_knee_linkage_link.STL" />
+          filename="../meshes/left_knee_linkage_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -2189,7 +2197,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_leg_roll_link.STL" />
+          filename="../meshes/right_leg_roll_link.STL" />
       </geometry>
       <material
         name="">
@@ -2203,7 +2211,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_leg_roll_link.STL" />
+          filename="../meshes/right_leg_roll_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -2250,7 +2258,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_leg_yaw_link.STL" />
+          filename="../meshes/right_leg_yaw_link.STL" />
       </geometry>
       <material
         name="">
@@ -2264,7 +2272,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_leg_yaw_link.STL" />
+          filename="../meshes/right_leg_yaw_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -2311,7 +2319,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_leg_pitch_link.STL" />
+          filename="../meshes/right_leg_pitch_link.STL" />
       </geometry>
       <material
         name="">
@@ -2325,7 +2333,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_leg_pitch_link.STL" />
+          filename="../meshes/right_leg_pitch_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -2372,7 +2380,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_knee_link.STL" />
+          filename="../meshes/right_knee_link.STL" />
       </geometry>
       <material
         name="">
@@ -2386,7 +2394,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_knee_link.STL" />
+          filename="../meshes/right_knee_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -2433,7 +2441,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_ankle_pitch_link.STL" />
+          filename="../meshes/right_ankle_pitch_link.STL" />
       </geometry>
       <material
         name="">
@@ -2447,7 +2455,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_ankle_pitch_link.STL" />
+          filename="../meshes/right_ankle_pitch_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -2494,7 +2502,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_ankle_roll_link.STL" />
+          filename="../meshes/right_ankle_roll_link.STL" />
       </geometry>
       <material
         name="">
@@ -2508,7 +2516,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_ankle_roll_link.STL" />
+          filename="../meshes/right_ankle_roll_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -2555,7 +2563,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_foot_ee_link.STL" />
+          filename="../meshes/right_foot_ee_link.STL" />
       </geometry>
       <material
         name="">
@@ -2569,7 +2577,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_foot_ee_link.STL" />
+          filename="../meshes/right_foot_ee_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -2608,7 +2616,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_ankle_pitch_motor1_link.STL" />
+          filename="../meshes/right_ankle_pitch_motor1_link.STL" />
       </geometry>
       <material
         name="">
@@ -2622,7 +2630,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_ankle_pitch_motor1_link.STL" />
+          filename="../meshes/right_ankle_pitch_motor1_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -2669,7 +2677,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_ankle_pitch_linkage1_link.STL" />
+          filename="../meshes/right_ankle_pitch_linkage1_link.STL" />
       </geometry>
       <material
         name="">
@@ -2683,7 +2691,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_ankle_pitch_linkage1_link.STL" />
+          filename="../meshes/right_ankle_pitch_linkage1_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -2730,7 +2738,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_ankle_pitch_motor2_link.STL" />
+          filename="../meshes/right_ankle_pitch_motor2_link.STL" />
       </geometry>
       <material
         name="">
@@ -2744,7 +2752,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_ankle_pitch_motor2_link.STL" />
+          filename="../meshes/right_ankle_pitch_motor2_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -2791,7 +2799,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_ankle_pitch_linkage2_link.STL" />
+          filename="../meshes/right_ankle_pitch_linkage2_link.STL" />
       </geometry>
       <material
         name="">
@@ -2805,7 +2813,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_ankle_pitch_linkage2_link.STL" />
+          filename="../meshes/right_ankle_pitch_linkage2_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -2852,7 +2860,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_knee_motor_link.STL" />
+          filename="../meshes/right_knee_motor_link.STL" />
       </geometry>
       <material
         name="">
@@ -2866,7 +2874,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_knee_motor_link.STL" />
+          filename="../meshes/right_knee_motor_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -2913,7 +2921,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_knee_linkage_link.STL" />
+          filename="../meshes/right_knee_linkage_link.STL" />
       </geometry>
       <material
         name="">
@@ -2927,7 +2935,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_knee_linkage_link.STL" />
+          filename="../meshes/right_knee_linkage_link.STL" />
       </geometry>
     </collision> -->
   </link>
@@ -2976,7 +2984,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_link.STL" />
+          filename="../meshes/left_hand_link.STL" />
       </geometry>
       <material
         name="">
@@ -2990,7 +2998,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_link.STL" />
+          filename="../meshes/left_hand_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -3027,7 +3035,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_thumb_bend_link.STL" />
+          filename="../meshes/left_hand_thumb_bend_link.STL" />
       </geometry>
       <material
         name="">
@@ -3041,7 +3049,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_thumb_bend_link.STL" />
+          filename="../meshes/left_hand_thumb_bend_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -3088,7 +3096,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_thumb_rota_link1.STL" />
+          filename="../meshes/left_hand_thumb_rota_link1.STL" />
       </geometry>
       <material
         name="">
@@ -3102,7 +3110,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_thumb_rota_link1.STL" />
+          filename="../meshes/left_hand_thumb_rota_link1.STL" />
       </geometry>
     </collision>
   </link>
@@ -3149,7 +3157,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_thumb_rota_link2.STL" />
+          filename="../meshes/left_hand_thumb_rota_link2.STL" />
       </geometry>
       <material
         name="">
@@ -3163,7 +3171,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_thumb_rota_link2.STL" />
+          filename="../meshes/left_hand_thumb_rota_link2.STL" />
       </geometry>
     </collision>
   </link>
@@ -3210,7 +3218,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_thumb_tip.STL" />
+          filename="../meshes/left_hand_thumb_tip.STL" />
       </geometry>
       <material
         name="">
@@ -3224,7 +3232,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_thumb_tip.STL" />
+          filename="../meshes/left_hand_thumb_tip.STL" />
       </geometry>
     </collision>
   </link>
@@ -3263,7 +3271,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_index_rota_link1.STL" />
+          filename="../meshes/left_hand_index_rota_link1.STL" />
       </geometry>
       <material
         name="">
@@ -3277,7 +3285,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_index_rota_link1.STL" />
+          filename="../meshes/left_hand_index_rota_link1.STL" />
       </geometry>
     </collision>
   </link>
@@ -3324,7 +3332,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_index_rota_link2.STL" />
+          filename="../meshes/left_hand_index_rota_link2.STL" />
       </geometry>
       <material
         name="">
@@ -3338,7 +3346,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_index_rota_link2.STL" />
+          filename="../meshes/left_hand_index_rota_link2.STL" />
       </geometry>
     </collision>
   </link>
@@ -3385,7 +3393,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_index_tip.STL" />
+          filename="../meshes/left_hand_index_tip.STL" />
       </geometry>
       <material
         name="">
@@ -3399,7 +3407,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_index_tip.STL" />
+          filename="../meshes/left_hand_index_tip.STL" />
       </geometry>
     </collision>
   </link>
@@ -3438,7 +3446,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_mid_link1.STL" />
+          filename="../meshes/left_hand_mid_link1.STL" />
       </geometry>
       <material
         name="">
@@ -3452,7 +3460,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_mid_link1.STL" />
+          filename="../meshes/left_hand_mid_link1.STL" />
       </geometry>
     </collision>
   </link>
@@ -3499,7 +3507,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_mid_link2.STL" />
+          filename="../meshes/left_hand_mid_link2.STL" />
       </geometry>
       <material
         name="">
@@ -3513,7 +3521,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_mid_link2.STL" />
+          filename="../meshes/left_hand_mid_link2.STL" />
       </geometry>
     </collision>
   </link>
@@ -3560,7 +3568,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_mid_tip.STL" />
+          filename="../meshes/left_hand_mid_tip.STL" />
       </geometry>
       <material
         name="">
@@ -3574,7 +3582,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_mid_tip.STL" />
+          filename="../meshes/left_hand_mid_tip.STL" />
       </geometry>
     </collision>
   </link>
@@ -3613,7 +3621,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_ring_link1.STL" />
+          filename="../meshes/left_hand_ring_link1.STL" />
       </geometry>
       <material
         name="">
@@ -3627,7 +3635,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_ring_link1.STL" />
+          filename="../meshes/left_hand_ring_link1.STL" />
       </geometry>
     </collision>
   </link>
@@ -3674,7 +3682,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_ring_link2.STL" />
+          filename="../meshes/left_hand_ring_link2.STL" />
       </geometry>
       <material
         name="">
@@ -3688,7 +3696,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_ring_link2.STL" />
+          filename="../meshes/left_hand_ring_link2.STL" />
       </geometry>
     </collision>
   </link>
@@ -3735,7 +3743,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_ring_tip.STL" />
+          filename="../meshes/left_hand_ring_tip.STL" />
       </geometry>
       <material
         name="">
@@ -3749,7 +3757,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_ring_tip.STL" />
+          filename="../meshes/left_hand_ring_tip.STL" />
       </geometry>
     </collision>
   </link>
@@ -3788,7 +3796,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_pinky_link1.STL" />
+          filename="../meshes/left_hand_pinky_link1.STL" />
       </geometry>
       <material
         name="">
@@ -3802,7 +3810,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_pinky_link1.STL" />
+          filename="../meshes/left_hand_pinky_link1.STL" />
       </geometry>
     </collision>
   </link>
@@ -3849,7 +3857,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_pinky_link2.STL" />
+          filename="../meshes/left_hand_pinky_link2.STL" />
       </geometry>
       <material
         name="">
@@ -3863,7 +3871,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_pinky_link2.STL" />
+          filename="../meshes/left_hand_pinky_link2.STL" />
       </geometry>
     </collision>
   </link>
@@ -3910,7 +3918,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_pinky_tip.STL" />
+          filename="../meshes/left_hand_pinky_tip.STL" />
       </geometry>
       <material
         name="">
@@ -3924,7 +3932,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_pinky_tip.STL" />
+          filename="../meshes/left_hand_pinky_tip.STL" />
       </geometry>
     </collision>
   </link>
@@ -3963,7 +3971,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_ee_link.STL" />
+          filename="../meshes/left_hand_ee_link.STL" />
       </geometry>
       <material
         name="">
@@ -3977,7 +3985,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/left_hand_ee_link.STL" />
+          filename="../meshes/left_hand_ee_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -4018,7 +4026,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_link.STL" />
+          filename="../meshes/right_hand_link.STL" />
       </geometry>
       <material
         name="">
@@ -4032,7 +4040,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_link.STL" />
+          filename="../meshes/right_hand_link.STL" />
       </geometry>
     </collision>
   </link>  
@@ -4069,7 +4077,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_thumb_bend_link.STL" />
+          filename="../meshes/right_hand_thumb_bend_link.STL" />
       </geometry>
       <material
         name="">
@@ -4083,7 +4091,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_thumb_bend_link.STL" />
+          filename="../meshes/right_hand_thumb_bend_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -4130,7 +4138,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_thumb_rota_link1.STL" />
+          filename="../meshes/right_hand_thumb_rota_link1.STL" />
       </geometry>
       <material
         name="">
@@ -4144,7 +4152,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_thumb_rota_link1.STL" />
+          filename="../meshes/right_hand_thumb_rota_link1.STL" />
       </geometry>
     </collision>
   </link>
@@ -4191,7 +4199,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_thumb_rota_link2.STL" />
+          filename="../meshes/right_hand_thumb_rota_link2.STL" />
       </geometry>
       <material
         name="">
@@ -4205,7 +4213,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_thumb_rota_link2.STL" />
+          filename="../meshes/right_hand_thumb_rota_link2.STL" />
       </geometry>
     </collision>
   </link>
@@ -4252,7 +4260,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_thumb_rota_tip.STL" />
+          filename="../meshes/right_hand_thumb_rota_tip.STL" />
       </geometry>
       <material
         name="">
@@ -4266,7 +4274,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_thumb_rota_tip.STL" />
+          filename="../meshes/right_hand_thumb_rota_tip.STL" />
       </geometry>
     </collision>
   </link>
@@ -4305,7 +4313,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_mid_link1.STL" />
+          filename="../meshes/right_hand_mid_link1.STL" />
       </geometry>
       <material
         name="">
@@ -4319,7 +4327,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_mid_link1.STL" />
+          filename="../meshes/right_hand_mid_link1.STL" />
       </geometry>
     </collision>
   </link>
@@ -4366,7 +4374,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_mid_link2.STL" />
+          filename="../meshes/right_hand_mid_link2.STL" />
       </geometry>
       <material
         name="">
@@ -4380,7 +4388,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_mid_link2.STL" />
+          filename="../meshes/right_hand_mid_link2.STL" />
       </geometry>
     </collision>
   </link>
@@ -4427,7 +4435,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_mid_tip.STL" />
+          filename="../meshes/right_hand_mid_tip.STL" />
       </geometry>
       <material
         name="">
@@ -4441,7 +4449,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_mid_tip.STL" />
+          filename="../meshes/right_hand_mid_tip.STL" />
       </geometry>
     </collision>
   </link>
@@ -4480,7 +4488,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_ring_link1.STL" />
+          filename="../meshes/right_hand_ring_link1.STL" />
       </geometry>
       <material
         name="">
@@ -4494,7 +4502,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_ring_link1.STL" />
+          filename="../meshes/right_hand_ring_link1.STL" />
       </geometry>
     </collision>
   </link>
@@ -4541,7 +4549,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_ring_link2.STL" />
+          filename="../meshes/right_hand_ring_link2.STL" />
       </geometry>
       <material
         name="">
@@ -4555,7 +4563,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_ring_link2.STL" />
+          filename="../meshes/right_hand_ring_link2.STL" />
       </geometry>
     </collision>
   </link>
@@ -4602,7 +4610,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_ring_tip.STL" />
+          filename="../meshes/right_hand_ring_tip.STL" />
       </geometry>
       <material
         name="">
@@ -4616,7 +4624,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_ring_tip.STL" />
+          filename="../meshes/right_hand_ring_tip.STL" />
       </geometry>
     </collision>
   </link>
@@ -4655,7 +4663,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_pinky_link1.STL" />
+          filename="../meshes/right_hand_pinky_link1.STL" />
       </geometry>
       <material
         name="">
@@ -4669,7 +4677,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_pinky_link1.STL" />
+          filename="../meshes/right_hand_pinky_link1.STL" />
       </geometry>
     </collision>
   </link>
@@ -4716,7 +4724,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_pinky_link2.STL" />
+          filename="../meshes/right_hand_pinky_link2.STL" />
       </geometry>
       <material
         name="">
@@ -4730,7 +4738,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_pinky_link2.STL" />
+          filename="../meshes/right_hand_pinky_link2.STL" />
       </geometry>
     </collision>
   </link>
@@ -4777,7 +4785,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_pinky_tip.STL" />
+          filename="../meshes/right_hand_pinky_tip.STL" />
       </geometry>
       <material
         name="">
@@ -4791,7 +4799,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_pinky_tip.STL" />
+          filename="../meshes/right_hand_pinky_tip.STL" />
       </geometry>
     </collision>
   </link>
@@ -4830,7 +4838,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_ee_link.STL" />
+          filename="../meshes/right_hand_ee_link.STL" />
       </geometry>
       <material
         name="">
@@ -4844,7 +4852,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_ee_link.STL" />
+          filename="../meshes/right_hand_ee_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -4883,7 +4891,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_index_rota_link1.STL" />
+          filename="../meshes/right_hand_index_rota_link1.STL" />
       </geometry>
       <material
         name="">
@@ -4897,7 +4905,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_index_rota_link1.STL" />
+          filename="../meshes/right_hand_index_rota_link1.STL" />
       </geometry>
     </collision>
   </link>
@@ -4944,7 +4952,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_index_rota_link2.STL" />
+          filename="../meshes/right_hand_index_rota_link2.STL" />
       </geometry>
       <material
         name="">
@@ -4958,7 +4966,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_index_rota_link2.STL" />
+          filename="../meshes/right_hand_index_rota_link2.STL" />
       </geometry>
     </collision>
   </link>
@@ -5005,7 +5013,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_index_tip.STL" />
+          filename="../meshes/right_hand_index_tip.STL" />
       </geometry>
       <material
         name="">
@@ -5019,7 +5027,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/meshes/right_hand_index_tip.STL" />
+          filename="../meshes/right_hand_index_tip.STL" />
       </geometry>
     </collision>
   </link>

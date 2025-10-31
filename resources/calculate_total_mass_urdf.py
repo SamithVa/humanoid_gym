@@ -2,7 +2,7 @@
 import argparse
 
 args = argparse.ArgumentParser()
-args.add_argument('--urdf_file', type=str, default='/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/XBot/urdf/XBot-L.urdf')
+args.add_argument('--urdf_file', type=str, default='/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/i1/urdf/i1_1028_named.urdf')
 
 urdf_file_dir = args.parse_args().urdf_file
 

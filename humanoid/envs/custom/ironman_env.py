@@ -209,12 +209,12 @@ class IronmanFreeEnv(LeggedRobot):
             self.cfg.env.num_single_obs, device=self.device)
         self.add_noise = self.cfg.noise.add_noise
         noise_scales = self.cfg.noise.noise_scales
-        noise_vec[0: 5] = 0.  # commands
-        noise_vec[5: 15] = noise_scales.dof_pos * self.obs_scales.dof_pos
-        noise_vec[15: 25] = noise_scales.dof_vel * self.obs_scales.dof_vel
+        noise_vec[0: 5] = 0.  # commands (sin, cos, lin vel x,y, ang vel yaw)
+        noise_vec[5: 15] = noise_scales.dof_pos * self.obs_scales.dof_pos # dof pos , 10 actions
+        noise_vec[15: 25] = noise_scales.dof_vel * self.obs_scales.dof_vel # dof vel , 10 actions
         noise_vec[25: 35] = 0.  # previous actions
-        noise_vec[35: 38] = noise_scales.ang_vel * self.obs_scales.ang_vel   # ang vel
-        noise_vec[38: 41] = noise_scales.quat * self.obs_scales.quat         # euler x,y
+        noise_vec[35: 38] = noise_scales.ang_vel * self.obs_scales.ang_vel   # ang vel (roll, pitch, yaw)
+        noise_vec[38: 41] = noise_scales.quat * self.obs_scales.quat         # euler x,y  (roll, pitch, yaw)
         return noise_vec
 
 
@@ -494,26 +494,21 @@ class IronmanFreeEnv(LeggedRobot):
     #     Encourages appropriate lift of the feet during the swing phase of the gait.
     #     """
     #     # Compute feet contact mask (1 if in contact, 0 if not)
-    #     contact = self.contact_forces[:, self.feet_indices, 2] > CONTACT_FORCE # [num_envs, 2] e.g [[1,0]] -> left foot contact, right foot swing
-    #     # print('Contact:', contact)
+    #     contact = self.contact_forces[:, self.feet_indices, 2] > CONTACT_FORCE 
+    #     # [num_envs, 2] e.g [[1,0]] -> left foot contact, right foot swing
 
     #     # Get the z-position of the feet and compute the change in z-position
     #     feet_z = self.rigid_state[:, self.feet_indices, 2] - 0.05
     #     delta_z = feet_z - self.last_feet_z
     #     self.feet_height += delta_z
     #     self.last_feet_z = feet_z
-    #     # print('Feet height:', self.feet_height)
 
     #     # Compute swing mask
     #     swing_mask = 1 - self._get_gait_phase()
-    #     # print('Swing mask:', swing_mask)
 
     #     # feet height should be closed to target feet height at the peak
     #     rew_pos = torch.abs(self.feet_height - self.cfg.rewards.target_feet_height) < 0.01
-    #     # rew_pos = torch.exp(-((self.feet_height - self.cfg.rewards.target_feet_height) ** 2) / (2 * 0.02**2))
-    #     # print("Rew Pos (before swing mask):", rew_pos)  # Debugging
     #     rew_pos = torch.sum(rew_pos * swing_mask, dim=1)
-    #     # print("Rew Pos (after swing mask):", rew_pos)  # Debugging
     #     self.feet_height *= ~contact
     #     return rew_pos
     
@@ -523,20 +518,17 @@ class IronmanFreeEnv(LeggedRobot):
         Encourages appropriate lift of the feet during the swing phase of the gait.
         """
         # Get the current z-position of the feet
-        # You might not need the -0.05 offset if your ground is at z=0
-        feet_z = self.rigid_state[:, self.feet_indices, 2] 
+        feet_z = self.rigid_state[:, self.feet_indices, 2] - 0.05
         
         # Get swing mask (1 if foot is in swing phase, 0 if in stance)
         swing_mask = 1 - self._get_gait_phase()
 
         # Reward swinging feet for being near the target height.
-        # This is the Gaussian reward function you had commented out.
-        # It's a "dense" reward: being close is good, being exact is best.
+        # use smoother reward function, Gaussian centered at target height 
         target_h = self.cfg.rewards.target_feet_height
-        rew_pos = torch.exp(-((feet_z - target_h) ** 2) / (2 * 0.02**2)) # 0.02 is a good std dev
+        rew_pos = torch.exp(-((feet_z - target_h) ** 2) / (2 * 0.02 ** 2)) # sigma = 0.02 
 
-        # Apply this reward *only* to the feet that are currently swinging
-        # and sum the reward from both feet.
+        # Apply this reward only to the feet that are currently swinging 
         rew_pos = torch.sum(rew_pos * swing_mask, dim=1)
 
         return rew_pos

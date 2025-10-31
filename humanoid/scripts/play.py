@@ -113,8 +113,9 @@ def play(args):
         video = cv2.VideoWriter(dir, fourcc, 50.0, (1920, 1080))
 
     for i in tqdm(range(stop_state_log)):
-
+        # print(f'Step {i}, observation: {obs[0,:41]}') # Print first 41 elements of observation of first frame
         actions = policy(obs.detach()) # * 0.
+        # print(f'Action: {actions[0]}') # Print action for first robot
         
         if FIX_COMMAND:
             env.commands[:, 0] = 0.5    # 1.0

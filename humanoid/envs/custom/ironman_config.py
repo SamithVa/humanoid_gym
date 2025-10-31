@@ -55,22 +55,22 @@ class IronmanCfg(LeggedRobotCfg):
         torque_limit = 0.85
 
     class asset(LeggedRobotCfg.asset):
-        file = '{LEGGED_GYM_ROOT_DIR}/resources/robots/body_0926_walk_init/urdf/body_0926.urdf'
+        file = '{LEGGED_GYM_ROOT_DIR}/resources/robots/i1/urdf/i1_1030.urdf'
 
-        name = "body_0926"
+        name = "i1_1030"
         foot_name = "5" # the fifth link e.g "leg_l5"
         knee_name = "4" # the fourth link e.g "leg_l4"
 
         terminate_after_contacts_on = ['base_link'] 
         penalize_contacts_on = ["base_link"]
-        self_collisions = 1  # 1 to disable, 0 to enable...bitwise filter, TODO
+        self_collisions = 0  # 1 to disable, 0 to enable...bitwise filter, TODO
         flip_visual_attachments = False
         replace_cylinder_with_capsule = False
         fix_base_link = False
 
     class terrain(LeggedRobotCfg.terrain):
-        mesh_type = 'plane'
-        # mesh_type = 'trimesh'
+        # mesh_type = 'plane'
+        mesh_type = 'trimesh'
         curriculum = False
         # rough terrain only:
         measure_heights = False
@@ -109,7 +109,7 @@ class IronmanCfg(LeggedRobotCfg):
             'leg_l4_joint': 0.,  # left_knee_joint [-0.1,1.8]
             'leg_l5_joint': 0.,  # left_ankle_pitch_joint [-0.9,0.3]      
             'leg_r1_joint': 0.,  # right_leg_pitch_joint [-0.7,1.0]
-            'leg_r2_joint': 0.,  # right_leg_roll_joint [-0.9,0]
+            'leg_r2_joint': 0.,  # right_leg_roll_joint [-0.9,0.7]
             'leg_r3_joint': 0.,  # right_leg_yaw_joint [-0.8,0.8]
             'leg_r4_joint': 0.,  # right_knee_joint [-1.6,0.1] 
             'leg_r5_joint': 0.,  # right_ankle_pitch_joint [-0.2,1.]
@@ -123,15 +123,15 @@ class IronmanCfg(LeggedRobotCfg):
         # low stiffness for smooth torque, but less precise tracking
         # damping = {'2': 1, '1': 1, '3': 1, '4': 1, '5': 1}
 
-        stiffness = {'2': 20., '1': 35., '3': 20.,
-                     '4': 35., '5': 2.}
-        damping = {'2': 1, '1': 1, '3':
-                   1, '4': 1, '5': 1}
+        stiffness = {'2': 40., '1': 60., '3': 40.,
+                     '4': 60., '5': 15.}
+        damping = {'2': 5, '1': 5, '3':
+                   5, '4': 5, '5': 3}
 
-        # stiffness = {'leg_roll': 20.0, 'leg_pitch': 20.0, 'leg_yaw': 20.0,
-        #              'knee': 20.0, 'ankle': 10}
-        # damping = {'leg_roll': 0.15, 'leg_pitch': 0.15, 'leg_yaw':
-        #            0.15, 'knee': 0.15, 'ankle': 0.15}
+        #  stiffness = {'2': 20., '1': 35., '3': 20.,
+        #              '4': 35., '5': 2.}
+        # damping = {'2': 1, '1': 1, '3':
+        #            1, '4': 1, '5': 1}
 
         # action scale: target angle = actionScale * action + defaultAngle
         action_scale = 0.25
@@ -183,11 +183,11 @@ class IronmanCfg(LeggedRobotCfg):
             heading = [-3.14, 3.14]
 
     class rewards:
-        base_height_target = 0.43 # from base_link to ground
+        base_height_target = 0.436 # from base_link to ground # 0.42941 m (walking init)
         min_dist = 0.2 # feet min distance to other feet
         max_dist = 0.5 # feet max distance to other feet
         # put some settings here for LLM parameter tuning
-        target_joint_pos_scale = 0.15    # (rad) # original 0.26
+        target_joint_pos_scale = 0.20    # (rad) # original 0.26 （Best result 0.15)
         target_feet_height = 0.06       # original 0.06       # (m) target feet height when swinging
         cycle_time = 0.64          # sec
         # if true negative total rewards are clipped at zero (avoids early termination problems)
