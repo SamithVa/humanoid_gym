@@ -1,0 +1,632 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="i1_1101">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.001244 -0.006461 0.133371" rpy="0 0 0" />
+      <mass value="4.014226" />
+      <inertia ixx="0.03979" ixy="8.1e-05" ixz="-0.00053" iyy="0.02642" iyz="0.001242" izz="0.021602" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="loin_yaw">
+    <inertial>
+      <origin xyz="0.000126 0.0 -0.053641" rpy="0 0 0" />
+      <mass value="1.187105" />
+      <inertia ixx="0.00213" ixy="0.0" ixz="5e-06" iyy="0.001181" iyz="0.0" izz="0.002038" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/loin_yaw.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/loin_yaw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="loin_yaw_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="loin_yaw" />
+    <axis xyz="0 0 -1" />
+    <limit lower="0" upper="0" effort="0" velocity="0" />
+  </joint>
+  <link name="leg_l1">
+    <inertial>
+      <origin xyz="0.004066 0.045668 -6.7e-05" rpy="0 0 0" />
+      <mass value="0.510247" />
+      <inertia ixx="0.000292" ixy="-2e-06" ixz="-1e-06" iyy="0.000285" iyz="0.0" izz="0.000289" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/leg_l1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/leg_l1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="leg_l1_joint" type="revolute">
+    <origin xyz="0 0.0495999999994021 -0.0620000000004782" rpy="0 -0.35 0" />
+    <parent link="loin_yaw" />
+    <child link="leg_l1" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.9" upper="0.7" effort="200" velocity="12" />
+  </joint>
+  <link name="leg_l2">
+    <inertial>
+      <origin xyz="-0.02912 1.2e-05 -0.03582" rpy="0 0 0" />
+      <mass value="0.095898" />
+      <inertia ixx="9.9e-05" ixy="0.0" ixz="7e-06" iyy="0.00016" iyz="0.0" izz="0.000121" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/leg_l2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/leg_l2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="leg_l2_joint" type="revolute">
+    <origin xyz="0.0271000000005301 0.0459499999996874 0" rpy="0 0 0" />
+    <parent link="leg_l1" />
+    <child link="leg_l2" />
+    <axis xyz="-1 0 0" />
+    <limit lower="-0.7" upper="0.05" effort="200" velocity="12" />
+  </joint>
+  <link name="leg_l3">
+    <inertial>
+      <origin xyz="-6.6e-05 0.001981 -0.070577" rpy="0 0 0" />
+      <mass value="0.97356" />
+      <inertia ixx="0.002505" ixy="1e-06" ixz="8e-06" iyy="0.002491" iyz="9.3e-05" izz="0.000548" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/leg_l3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/leg_l3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="leg_l3_joint" type="revolute">
+    <origin xyz="-0.0271499999934677 0 -0.0740000000023893" rpy="0 0 0" />
+    <parent link="leg_l2" />
+    <child link="leg_l3" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-0.8" upper="0.8" effort="0" velocity="0" />
+  </joint>
+  <link name="leg_l4">
+    <inertial>
+      <origin xyz="-0.001168 -0.029747 -0.081327" rpy="0 0 0" />
+      <mass value="0.514444" />
+      <inertia ixx="0.000849" ixy="2e-06" ixz="-2.9e-05" iyy="0.000765" iyz="1.1e-05" izz="0.000359" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/leg_l4.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/leg_l4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="leg_l4_joint" type="revolute">
+    <origin xyz="0 0.0271000000001188 -0.117049999999972" rpy="0 0.7 0" />
+    <parent link="leg_l3" />
+    <child link="leg_l4" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.1" upper="1.8" effort="200" velocity="12" />
+  </joint>
+  <link name="leg_l5">
+    <inertial>
+      <origin xyz="0.014563 -0.02 -0.013765" rpy="0 0 0" />
+      <mass value="0.136733" />
+      <inertia ixx="4.9e-05" ixy="0.0" ixz="2.1e-05" iyy="0.000298" iyz="0.0" izz="0.000318" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/leg_l5.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/leg_l5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="leg_l5_joint" type="revolute">
+    <origin xyz="0 -0.00709999999740331 -0.200000000000092" rpy="0 -0.35 0" />
+    <parent link="leg_l4" />
+    <child link="leg_l5" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.9" upper="0.2" effort="200" velocity="12" />
+  </joint>
+  <link name="leg_r1">
+    <inertial>
+      <origin xyz="0.004066 -0.045683 -7.4e-05" rpy="0 0 0" />
+      <mass value="0.510049" />
+      <inertia ixx="0.000291" ixy="2e-06" ixz="-1e-06" iyy="0.000285" iyz="0.0" izz="0.000288" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/leg_r1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/leg_r1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="leg_r1_joint" type="revolute">
+    <origin xyz="0 -0.0496000000005979 -0.0619999999995216" rpy="0 -0.35 0" />
+    <parent link="loin_yaw" />
+    <child link="leg_r1" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.9" upper="0.7" effort="200" velocity="12" />
+  </joint>
+  <link name="leg_r2">
+    <inertial>
+      <origin xyz="-0.02912 1.2e-05 -0.035822" rpy="0 0 0" />
+      <mass value="0.095898" />
+      <inertia ixx="9.9e-05" ixy="0.0" ixz="7e-06" iyy="0.00016" iyz="0.0" izz="0.000121" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/leg_r2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/leg_r2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="leg_r2_joint" type="revolute">
+    <origin xyz="0.0270999999994667 -0.0459500000003151 0" rpy="0 0 0" />
+    <parent link="leg_r1" />
+    <child link="leg_r2" />
+    <axis xyz="-1 0 0" />
+    <limit lower="-0.7" upper="0.05" effort="200" velocity="12" />
+  </joint>
+  <link name="leg_r3">
+    <inertial>
+      <origin xyz="0.000149 -0.001981 -0.070578" rpy="0 0 0" />
+      <mass value="0.97356" />
+      <inertia ixx="0.002505" ixy="-1e-06" ixz="-4e-06" iyy="0.002491" iyz="-9.3e-05" izz="0.000548" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/leg_r3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/leg_r3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="leg_r3_joint" type="revolute">
+    <origin xyz="-0.0271499999999982 0 -0.0740526859428612" rpy="0 0 0" />
+    <parent link="leg_r2" />
+    <child link="leg_r3" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-0.8" upper="0.8" effort="200" velocity="12" />
+  </joint>
+  <link name="leg_r4">
+    <inertial>
+      <origin xyz="-0.001101 0.029796 -0.081327" rpy="0 0 0" />
+      <mass value="0.514444" />
+      <inertia ixx="0.000849" ixy="-3e-06" ixz="-2.9e-05" iyy="0.000765" iyz="-1.1e-05" izz="0.000359" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/leg_r4.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/leg_r4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="leg_r4_joint" type="revolute">
+    <origin xyz="0 -0.0270999999988379 -0.117050000000269" rpy="0 .7 0" />
+    <parent link="leg_r3" />
+    <child link="leg_r4" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.1" upper="1.8" effort="200" velocity="12" />
+  </joint>
+  <link name="leg_r5">
+    <inertial>
+      <origin xyz="0.014563 0.02 -0.013765" rpy="0 0 0" />
+      <mass value="0.136733" />
+      <inertia ixx="4.9e-05" ixy="0.0" ixz="2.1e-05" iyy="0.000298" iyz="0.0" izz="0.000318" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/leg_r5.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/leg_r5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="leg_r5_joint" type="revolute">
+    <origin xyz="0 0.00715000000367917 -0.200000000000334" rpy="0 -0.35 0" />
+    <parent link="leg_r4" />
+    <child link="leg_r5" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.9" upper="0.2" effort="200" velocity="12" />
+  </joint>
+  <link name="r_shoulder_pitch">
+    <inertial>
+      <origin xyz="-0.00416 -0.046957 -7.2e-05" rpy="0 0 0" />
+      <mass value="0.338408" />
+      <inertia ixx="0.000162" ixy="3e-06" ixz="0.0" iyy="0.000132" iyz="0.0" izz="0.000153" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/r_shoulder_pitch.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/r_shoulder_pitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="r_shoulder_pitch_joint" type="fixed">
+    <origin xyz="0.0015211 -0.1421 0.19236" rpy="0 0 0.010704" />
+    <parent link="base_link" />
+    <child link="r_shoulder_pitch" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="0" effort="0" velocity="0" />
+  </joint>
+  <link name="r_shoulder_roll">
+    <inertial>
+      <origin xyz="-0.035711 -0.000382 -0.045184" rpy="0 0 0" />
+      <mass value="0.123184" />
+      <inertia ixx="0.000119" ixy="0.0" ixz="1.2e-05" iyy="0.000138" iyz="0.0" izz="0.000114" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/r_shoulder_roll.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/r_shoulder_roll.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="r_shoulder_roll_joint" type="fixed">
+    <origin xyz="0.0294988163604422 -0.0489500000001077 0.000264259939019407" rpy="0 0 -0.0107043277626806" />
+    <parent link="r_shoulder_pitch" />
+    <child link="r_shoulder_roll" />
+    <axis xyz="0.999902588164708 0.010703693844858 0.00895796403171279" />
+    <limit lower="0" upper="0" effort="0" velocity="0" />
+  </joint>
+  <link name="r_shoulder_yaw">
+    <inertial>
+      <origin xyz="0.000596 0.001062 -0.060426" rpy="0 0 0" />
+      <mass value="0.50875" />
+      <inertia ixx="0.000985" ixy="0.0" ixz="6e-06" iyy="0.001007" iyz="2.2e-05" izz="0.000261" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/r_shoulder_yaw.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/r_shoulder_yaw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="r_shoulder_yaw_joint" type="fixed">
+    <origin xyz="-0.0332572504317691 -0.000356010107427529 -0.0828512585933959" rpy="0 0 0" />
+    <parent link="r_shoulder_roll" />
+    <child link="r_shoulder_yaw" />
+    <axis xyz="0.0290244273796275 0.000310698861993819 0.999578654274641" />
+    <limit lower="0" upper="0" effort="0" velocity="0" />
+  </joint>
+  <link name="r_arm_pitch">
+    <inertial>
+      <origin xyz="0.004518 0.019061 -0.115015" rpy="0 0 0" />
+      <mass value="0.347026" />
+      <inertia ixx="0.000986" ixy="1e-06" ixz="5.3e-05" iyy="0.001003" iyz="7.2e-05" izz="0.000228" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/r_arm_pitch.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/r_arm_pitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="r_arm_pitch_joint" type="fixed">
+    <origin xyz="0.00108857599788274 -0.0155142365719634 -0.102970782946762" rpy="0 0 0" />
+    <parent link="r_shoulder_yaw" />
+    <child link="r_arm_pitch" />
+    <axis xyz="0.010704123340247 -0.999942709230642 0" />
+    <limit lower="0" upper="0" effort="0" velocity="0" />
+  </joint>
+  <link name="l_shoulder_pitch">
+    <inertial>
+      <origin xyz="-0.004662 0.04691 8.6e-05" rpy="0 0 0" />
+      <mass value="0.338408" />
+      <inertia ixx="0.000163" ixy="-2e-06" ixz="0.0" iyy="0.000132" iyz="0.0" izz="0.000153" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/l_shoulder_pitch.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/l_shoulder_pitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="l_shoulder_pitch_joint" type="fixed">
+    <origin xyz="-0.0015211 0.1421 0.19236" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="l_shoulder_pitch" />
+    <axis xyz="-0.010704 0.99994 0" />
+    <limit lower="0" upper="0" effort="0" velocity="0" />
+  </joint>
+  <link name="l_shoulder_roll">
+    <inertial>
+      <origin xyz="-0.037401 -0.0004 -0.043796" rpy="0 0 0" />
+      <mass value="0.123182" />
+      <inertia ixx="0.00012" ixy="0.0" ixz="1.2e-05" iyy="0.000138" iyz="0.0" izz="0.000113" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/l_shoulder_roll.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/l_shoulder_roll.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="l_shoulder_roll_joint" type="fixed">
+    <origin xyz="0.028961914097807 0.0492628342080569 -0.000856269663819131" rpy="0 0 0" />
+    <parent link="l_shoulder_pitch" />
+    <child link="l_shoulder_roll" />
+    <axis xyz="-0.999521387644461 -0.0106996131992724 0.0290260903098726" />
+    <limit lower="0" upper="0" effort="0" velocity="0" />
+  </joint>
+  <link name="l_shoulder_yaw">
+    <inertial>
+      <origin xyz="-0.001664 -0.00107 -0.060401" rpy="0 0 0" />
+      <mass value="0.509094" />
+      <inertia ixx="0.000984" ixy="-1e-06" ixz="-2.1e-05" iyy="0.001007" iyz="-2.2e-05" izz="0.000262" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/l_shoulder_yaw.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/l_shoulder_yaw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="l_shoulder_yaw_joint" type="fixed">
+    <origin xyz="-0.0363796936599959 -0.000389435038538916 -0.0815283308399195" rpy="0 0 0" />
+    <parent link="l_shoulder_roll" />
+    <child link="l_shoulder_yaw" />
+    <axis xyz="0.0290244273796269 0.000310698860122039 0.999578654274641" />
+    <limit lower="0" upper="0" effort="0" velocity="0" />
+  </joint>
+  <link name="l_arm_pitch">
+    <inertial>
+      <origin xyz="0.004956 -0.018967 -0.115014" rpy="0 0 0" />
+      <mass value="0.347006" />
+      <inertia ixx="0.000986" ixy="-1e-06" ixz="5.4e-05" iyy="0.001003" iyz="-7.1e-05" izz="0.000228" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/l_arm_pitch.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/l_arm_pitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="l_arm_pitch_joint" type="fixed">
+    <origin xyz="-0.00315495415371205 0.0154921165359136 -0.10293149731973" rpy="0 0 0" />
+    <parent link="l_shoulder_yaw" />
+    <child link="l_arm_pitch" />
+    <axis xyz="0.010704123340247 -0.999942709230642 0" />
+    <limit lower="0" upper="0" effort="0" velocity="0" />
+  </joint>
+  <link name="head">
+    <inertial>
+      <origin xyz="-0.009177 -0.004717 0.079019" rpy="0 0 0" />
+      <mass value="0.2551" />
+      <inertia ixx="0.000716" ixy="-1e-06" ixz="9e-05" iyy="0.000743" iyz="3.5e-05" izz="0.000219" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/head.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/head.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="head_joint" type="fixed">
+    <origin xyz="-3.7464E-05 0.0034998 0" rpy="0 0 0.010704" />
+    <parent link="base_link" />
+    <child link="head" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="imu">
+    <inertial>
+      <origin xyz="0.0 0.0 -0.0045" rpy="0 0 0" />
+      <mass value="0" />
+      <inertia ixx="1e-06" ixy="0.0" ixz="0.0" iyy="1e-06" iyz="0.0" izz="2e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/imu.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../mjcf_meshes/imu.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="imu_joint" type="fixed">
+    <origin xyz="-3.74644316954165E-05 0.00349979948470109 0.269221174843966" rpy="0 0 0.0107043277626805" />
+    <parent link="head" />
+    <child link="imu" />
+    <axis xyz="0 0 0" />
+  </joint>
+</robot>
