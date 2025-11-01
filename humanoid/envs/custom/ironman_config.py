@@ -55,9 +55,9 @@ class IronmanCfg(LeggedRobotCfg):
         torque_limit = 0.85
 
     class asset(LeggedRobotCfg.asset):
-        file = '{LEGGED_GYM_ROOT_DIR}/resources/robots/i1/urdf/i1_1030.urdf'
+        file = '{LEGGED_GYM_ROOT_DIR}/resources/robots/i1/urdf/i1_1101.urdf'
 
-        name = "i1_1030"
+        name = "i1_1101"
         foot_name = "5" # the fifth link e.g "leg_l5"
         knee_name = "4" # the fourth link e.g "leg_l4"
 
@@ -98,7 +98,7 @@ class IronmanCfg(LeggedRobotCfg):
             height_measurements = 0.1
 
     class init_state(LeggedRobotCfg.init_state):
-        pos = [0.0, 0.0, 0.49] # x,y,z [m]
+        pos = [0.0, 0.0, 0.50] # x,y,z [m]
 
         # initialAngle = np.array([0.6,0.,0.,-0.9,0.28,0.6,0.,0.,-0.9,0.28])
 
@@ -123,10 +123,10 @@ class IronmanCfg(LeggedRobotCfg):
         # low stiffness for smooth torque, but less precise tracking
         # damping = {'2': 1, '1': 1, '3': 1, '4': 1, '5': 1}
 
-        stiffness = {'2': 40., '1': 60., '3': 40.,
-                     '4': 60., '5': 15.}
+        stiffness = {'2': 20., '1': 60., '3': 20.,
+                     '4': 60., '5': 5.}
         damping = {'2': 5, '1': 5, '3':
-                   5, '4': 5, '5': 3}
+                   5, '4': 5, '5': 5}
 
         #  stiffness = {'2': 20., '1': 35., '3': 20.,
         #              '4': 35., '5': 2.}
@@ -183,7 +183,7 @@ class IronmanCfg(LeggedRobotCfg):
             heading = [-3.14, 3.14]
 
     class rewards:
-        base_height_target = 0.436 # from base_link to ground # 0.42941 m (walking init)
+        base_height_target = 0.435 # from base_link to ground # 0.42941 m (walking init)
         min_dist = 0.2 # feet min distance to other feet
         max_dist = 0.5 # feet max distance to other feet
         # put some settings here for LLM parameter tuning
