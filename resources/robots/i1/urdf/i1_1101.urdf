@@ -78,7 +78,7 @@
     <parent link="loin_yaw" />
     <child link="leg_l1" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.9" upper="0.7" effort="200" velocity="12" />
+    <limit lower="-0.9" upper="0.7" effort="120" velocity="12" />
   </joint>
   <link name="leg_l2">
     <inertial>
@@ -107,7 +107,7 @@
     <parent link="leg_l1" />
     <child link="leg_l2" />
     <axis xyz="-1 0 0" />
-    <limit lower="-0.7" upper="0.05" effort="200" velocity="12" />
+    <limit lower="-0.7" upper="0.05" effort="120" velocity="12" />
   </joint>
   <link name="leg_l3">
     <inertial>
@@ -124,19 +124,19 @@
         <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
-    <collision>
+    <!-- <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <mesh filename="../mjcf_meshes/leg_l3.STL" />
       </geometry>
-    </collision>
+    </collision> -->
   </link>
   <joint name="leg_l3_joint" type="revolute">
     <origin xyz="-0.0271499999934677 0 -0.0740000000023893" rpy="0 0 0" />
     <parent link="leg_l2" />
     <child link="leg_l3" />
     <axis xyz="0 0 -1" />
-    <limit lower="-0.8" upper="0.8" effort="200" velocity="12" />
+    <limit lower="-0.8" upper="0.8" effort="120" velocity="12" />
   </joint>
   <link name="leg_l4">
     <inertial>
@@ -165,7 +165,7 @@
     <parent link="leg_l3" />
     <child link="leg_l4" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.1" upper="1.8" effort="200" velocity="12" />
+    <limit lower="-0.1" upper="1.8" effort="120" velocity="12" />
   </joint>
   <link name="leg_l5">
     <inertial>
@@ -194,7 +194,7 @@
     <parent link="leg_l4" />
     <child link="leg_l5" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.9" upper="0.2" effort="200" velocity="12" />
+    <limit lower="-0.9" upper="0.2" effort="40" velocity="6" />
   </joint>
   <link name="leg_r1">
     <inertial>
@@ -223,7 +223,7 @@
     <parent link="loin_yaw" />
     <child link="leg_r1" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.9" upper="0.7" effort="200" velocity="12" />
+    <limit lower="-0.9" upper="0.7" effort="120" velocity="12" />
   </joint>
   <link name="leg_r2">
     <inertial>
@@ -240,19 +240,19 @@
         <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
-    <collision>
+    <!-- <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <mesh filename="../mjcf_meshes/leg_r2.STL" />
       </geometry>
-    </collision>
+    </collision> -->
   </link>
   <joint name="leg_r2_joint" type="revolute">
     <origin xyz="0.0270999999994667 -0.0459500000003151 0" rpy="0 0 0" />
     <parent link="leg_r1" />
     <child link="leg_r2" />
     <axis xyz="-1 0 0" />
-    <limit lower="-0.7" upper="0.05" effort="200" velocity="12" />
+    <limit lower="-0.7" upper="0.05" effort="120" velocity="12" />
   </joint>
   <link name="leg_r3">
     <inertial>
@@ -281,7 +281,7 @@
     <parent link="leg_r2" />
     <child link="leg_r3" />
     <axis xyz="0 0 -1" />
-    <limit lower="-0.8" upper="0.8" effort="200" velocity="12" />
+    <limit lower="-0.8" upper="0.8" effort="120" velocity="12" />
   </joint>
   <link name="leg_r4">
     <inertial>
@@ -310,7 +310,7 @@
     <parent link="leg_r3" />
     <child link="leg_r4" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.1" upper="1.8" effort="200" velocity="12" />
+    <limit lower="-0.1" upper="1.8" effort="120" velocity="12" />
   </joint>
   <link name="leg_r5">
     <inertial>
@@ -339,7 +339,7 @@
     <parent link="leg_r4" />
     <child link="leg_r5" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.9" upper="0.2" effort="200" velocity="12" />
+    <limit lower="-0.9" upper="0.2" effort="40" velocity="6" />
   </joint>
   <link name="r_shoulder_pitch">
     <inertial>
