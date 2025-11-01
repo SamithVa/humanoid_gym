@@ -221,7 +221,7 @@ def run_mujoco(policy, cfg):
             action = np.clip(action, -cfg.normalization.clip_actions, cfg.normalization.clip_actions)
 
             # init target_q with zero for first 500 steps
-            if count_lowlevel < 200:
+            if count_lowlevel < 300:
                 target_q = np.zeros((cfg.env.num_actions), dtype=np.double)
             else:
                 target_q = action * cfg.control.action_scale
@@ -267,7 +267,7 @@ if __name__ == '__main__':
             if args.terrain:
                 mujoco_model_path = f'{LEGGED_GYM_ROOT_DIR}/resources/robots/XBot/mjcf/XBot-L-terrain.xml' # use original terrain
             else:
-                mujoco_model_path = f'{LEGGED_GYM_ROOT_DIR}/resources/robots/i1/mjcf/i1_1030_test.xml'
+                mujoco_model_path = f'{LEGGED_GYM_ROOT_DIR}/resources/robots/i1/mjcf/i1_1101.xml'
             sim_duration = 60.0
             dt = 0.001
             decimation = 10
@@ -279,8 +279,8 @@ if __name__ == '__main__':
             # damping = {'2': 5, '1': 5, '3':
             #         5, '4': 5, '5': 3}
             # actuator robot parameters
-            kps = np.array([40, 60, 40, 60, 5, 40, 60, 40, 60, 5], dtype=np.double) # leg_roll, leg_pitch, leg_yaw, knee, ankle_pitch
-            kds = np.array(np.ones(10) * 1, dtype=np.double)
+            kps = np.array([20, 60, 20, 60, 5, 20, 60, 20, 60, 5], dtype=np.double) # leg_roll, leg_pitch, leg_yaw, knee, ankle_pitch
+            kds = np.array(np.ones(10) * 3, dtype=np.double)
             tau_limit = 200. * np.ones(10, dtype=np.double)
 
     policy = torch.jit.load(args.load_model)
