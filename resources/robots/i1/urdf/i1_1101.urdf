@@ -153,12 +153,12 @@
         <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
-    <collision>
+    <!-- <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <mesh filename="../mjcf_meshes/leg_l4.STL" />
       </geometry>
-    </collision>
+    </collision> -->
   </link>
   <joint name="leg_l4_joint" type="revolute">
     <origin xyz="0 0.0271000000001188 -0.117049999999972" rpy="0 0.7 0" />
@@ -298,12 +298,12 @@
         <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
-    <collision>
+    <!-- <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <mesh filename="../mjcf_meshes/leg_r4.STL" />
       </geometry>
-    </collision>
+    </collision> -->
   </link>
   <joint name="leg_r4_joint" type="revolute">
     <origin xyz="0 -0.0270999999988379 -0.117050000000269" rpy="0 .7 0" />
