@@ -37,6 +37,9 @@ from scipy.spatial.transform import Rotation as R
 from humanoid import LEGGED_GYM_ROOT_DIR
 from humanoid.envs import IronmanCfg
 import torch
+import csv
+from datetime import datetime
+import os
 
 
 class cmd:
@@ -171,6 +174,29 @@ def run_mujoco(policy, cfg):
     mujoco.mj_step(model, data)
     viewer = mujoco_viewer.MujocoViewer(model, data)
 
+    # Setup CSV logging
+    log_dir = os.path.join(LEGGED_GYM_ROOT_DIR, 'debug_logs')
+    os.makedirs(log_dir, exist_ok=True)
+    log_file = os.path.join(log_dir, f'sim2sim_debug_{datetime.now().strftime("%Y%m%d_%H%M%S")}.csv')
+    
+    csv_file = open(log_file, 'w', newline='')
+    csv_writer = csv.writer(csv_file)
+    
+    # Write header
+    header = ['timestep']
+    # Observation components
+    header.extend([f'obs_{i}' for i in range(cfg.env.num_single_obs)])
+    # Action components
+    header.extend([f'action_{i}' for i in range(cfg.env.num_actions)])
+    # State information
+    header.extend([f'q_{i}' for i in range(cfg.env.num_actions)])
+    header.extend([f'dq_{i}' for i in range(cfg.env.num_actions)])
+    header.extend([f'target_q_{i}' for i in range(cfg.env.num_actions)])
+    header.extend([f'tau_{i}' for i in range(cfg.env.num_actions)])
+    
+    csv_writer.writerow(header)
+    csv_file.flush()
+
     target_q = np.zeros((cfg.env.num_actions), dtype=np.double)
     action = np.zeros((cfg.env.num_actions), dtype=np.double)
 
@@ -235,21 +261,25 @@ def run_mujoco(policy, cfg):
         tau = np.clip(tau, -cfg.robot_config.tau_limit, cfg.robot_config.tau_limit)  # Clamp torques
         data.ctrl = tau
 
-        # if count_lowlevel % 100 == 0:
-        #     print("-------------------------")
-        #     print(f"Step: {count_lowlevel}")
-        #     print(f"target_q: {np.round(target_q, 2)}")
-        #     print(f"q:        {np.round(q, 2)}")
-        #     print(f"target_dq: {np.round(target_dq, 2)}")
-        #     print(f"dq:       {np.round(dq, 2)}")
-        #     print(f"tau:      {np.round(tau, 2)}")
-        #     print("-------------------------")
+        # Log to CSV at each control step
+        if count_lowlevel % cfg.sim_config.decimation == 0:
+            row = [count_lowlevel]
+            row.extend(obs[0, :].tolist())
+            row.extend(action.tolist())
+            row.extend(q.tolist())
+            row.extend(dq.tolist())
+            row.extend(target_q.tolist())
+            row.extend(tau.tolist())
+            csv_writer.writerow(row)
+            csv_file.flush()
 
         mujoco.mj_step(model, data)
         viewer.render()
         count_lowlevel += 1
 
     viewer.close()
+    csv_file.close()
+    print(f"\nDebug log saved to: {log_file}")
 
 
 if __name__ == '__main__':
@@ -268,7 +298,7 @@ if __name__ == '__main__':
                 mujoco_model_path = f'{LEGGED_GYM_ROOT_DIR}/resources/robots/XBot/mjcf/XBot-L-terrain.xml' # use original terrain
             else:
                 mujoco_model_path = f'{LEGGED_GYM_ROOT_DIR}/resources/robots/i1/mjcf/i1_1101.xml'
-            sim_duration = 60.0
+            sim_duration = 2.0
             dt = 0.001
             decimation = 10
 
@@ -279,7 +309,7 @@ if __name__ == '__main__':
             # damping = {'2': 5, '1': 5, '3':
             #         5, '4': 5, '5': 3}
             # actuator robot parameters
-            kps = np.array([20, 60, 20, 60, 5, 20, 60, 20, 60, 5], dtype=np.double) # leg_roll, leg_pitch, leg_yaw, knee, ankle_pitch
+            kps = np.array([20, 60, 20, 40, 1, 20, 60, 20, 60, 1], dtype=np.double) # leg_roll, leg_pitch, leg_yaw, knee, ankle_pitch
             kds = np.array(np.ones(10) * 3, dtype=np.double)
             tau_limit = 200. * np.ones(10, dtype=np.double)
 

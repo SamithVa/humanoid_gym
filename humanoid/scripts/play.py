@@ -31,6 +31,7 @@
 
 import os
 import cv2
+import csv
 import numpy as np
 from isaacgym import gymapi
 from humanoid import LEGGED_GYM_ROOT_DIR
@@ -70,7 +71,7 @@ def play(args):
     env, _ = task_registry.make_env(name=args.task, args=args, env_cfg=env_cfg)
     env.set_camera(env_cfg.viewer.pos, env_cfg.viewer.lookat)
 
-    obs = env.get_observations()
+    obs = env.get_observations() # stacked frames obtained from env
 
     # load policy
     train_cfg.runner.resume = True
@@ -86,7 +87,30 @@ def play(args):
     logger = Logger(env.dt)
     robot_index = 0 # which robot is used for logging
     joint_index = 1 # which joint is used for logging
-    stop_state_log = 1200 # number of steps before plotting states
+    stop_state_log = 200 # number of steps before plotting states
+    
+    # Setup CSV logging
+    log_dir = os.path.join(LEGGED_GYM_ROOT_DIR, 'debug_logs')
+    os.makedirs(log_dir, exist_ok=True)
+    log_file = os.path.join(log_dir, f'play_debug_{datetime.now().strftime("%Y%m%d_%H%M%S")}.csv')
+    
+    csv_file = open(log_file, 'w', newline='')
+    csv_writer = csv.writer(csv_file)
+    
+    # Write header - only log 41 observations for a single frame (not stacked)
+    header = ['timestep']
+    # Observation components (only first 41 from single frame)
+    header.extend([f'obs_{i}' for i in range(41)])
+    # Action components
+    header.extend([f'action_{i}' for i in range(env.num_actions)])
+    # State information
+    header.extend([f'dof_pos_{i}' for i in range(env.num_dof)])
+    header.extend([f'dof_vel_{i}' for i in range(env.num_dof)])
+    header.extend([f'torque_{i}' for i in range(env.num_dof)])
+    
+    csv_writer.writerow(header)
+    csv_file.flush()
+    
     if RENDER:
         camera_properties = gymapi.CameraProperties()
         camera_properties.width = 1920
@@ -125,6 +149,17 @@ def play(args):
 
         obs, critic_obs, rews, dones, infos = env.step(actions.detach())
 
+        # Log to CSV - only log at timesteps 10, 20, 30, 40, etc. (every 10 steps)
+        # if (i) % 10 == 0:
+        row = [i * 10] # timestep
+        row.extend(obs[robot_index][:41].cpu().numpy().tolist())
+        row.extend(actions[robot_index].cpu().detach().numpy().tolist())
+        row.extend(env.dof_pos[robot_index].cpu().numpy().tolist())
+        row.extend(env.dof_vel[robot_index].cpu().numpy().tolist())
+        row.extend(env.torques[robot_index].cpu().numpy().tolist())
+        csv_writer.writerow(row)
+        csv_file.flush()
+
         if RENDER:
             env.gym.fetch_results(env.sim, True)
             env.gym.step_graphics(env.sim)
@@ -161,6 +196,9 @@ def play(args):
     
     if RENDER:
         video.release()
+    
+    csv_file.close()
+    print(f"\nDebug log saved to: {log_file}")
 
 if __name__ == '__main__':
     EXPORT_POLICY = True
