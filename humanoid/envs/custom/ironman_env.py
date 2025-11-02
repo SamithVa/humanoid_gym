@@ -39,6 +39,7 @@ from humanoid.envs import LeggedRobot
 from humanoid.utils.terrain import  HumanoidTerrain
 
 CONTACT_FORCE = 5.  # threshold for contact force to consider foot in contact
+FEET_OFFSET = 0.01  # height of the ground plane
 
 class IronmanFreeEnv(LeggedRobot):
     '''
@@ -426,7 +427,7 @@ class IronmanFreeEnv(LeggedRobot):
         measured_heights = torch.sum(
             self.rigid_state[:, self.feet_indices, 2] * stance_mask, dim=1) / torch.sum(stance_mask, dim=1)
         # base_height = self.root_states[:, 2] - (measured_heights - 0.05) # why there is a 0.05 offset here? NOTE
-        base_height = self.root_states[:, 2] - (measured_heights) 
+        base_height = self.root_states[:, 2] - (measured_heights) - FEET_OFFSET
         return torch.exp(-torch.abs(base_height - self.cfg.rewards.base_height_target) * 100)
 
     def _reward_base_acc(self):
@@ -489,50 +490,50 @@ class IronmanFreeEnv(LeggedRobot):
         return torch.exp(-ang_vel_error * self.cfg.rewards.tracking_sigma)
     
     # TODO : test this reward
-    # def _reward_feet_clearance(self): # ORIGINAL
-    #     """
-    #     Calculates reward based on the clearance of the swing leg from the ground during movement.
-    #     Encourages appropriate lift of the feet during the swing phase of the gait.
-    #     """
-    #     # Compute feet contact mask (1 if in contact, 0 if not)
-    #     contact = self.contact_forces[:, self.feet_indices, 2] > CONTACT_FORCE 
-    #     # [num_envs, 2] e.g [[1,0]] -> left foot contact, right foot swing
-
-    #     # Get the z-position of the feet and compute the change in z-position
-    #     feet_z = self.rigid_state[:, self.feet_indices, 2] - 0.05
-    #     delta_z = feet_z - self.last_feet_z
-    #     self.feet_height += delta_z
-    #     self.last_feet_z = feet_z
-
-    #     # Compute swing mask
-    #     swing_mask = 1 - self._get_gait_phase()
-
-    #     # feet height should be closed to target feet height at the peak
-    #     rew_pos = torch.abs(self.feet_height - self.cfg.rewards.target_feet_height) < 0.01
-    #     rew_pos = torch.sum(rew_pos * swing_mask, dim=1)
-    #     self.feet_height *= ~contact
-    #     return rew_pos
-    
-    def _reward_feet_clearance(self): 
+    def _reward_feet_clearance(self): # ORIGINAL
         """
         Calculates reward based on the clearance of the swing leg from the ground during movement.
         Encourages appropriate lift of the feet during the swing phase of the gait.
         """
-        # Get the current z-position of the feet
-        feet_z = self.rigid_state[:, self.feet_indices, 2]
-        
-        # Get swing mask (1 if foot is in swing phase, 0 if in stance)
+        # Compute feet contact mask (1 if in contact, 0 if not)
+        contact = self.contact_forces[:, self.feet_indices, 2] > CONTACT_FORCE 
+        # [num_envs, 2] e.g [[1,0]] -> left foot contact, right foot swing
+
+        # Get the z-position of the feet and compute the change in z-position
+        feet_z = self.rigid_state[:, self.feet_indices, 2] - FEET_OFFSET
+        delta_z = feet_z - self.last_feet_z
+        self.feet_height += delta_z
+        self.last_feet_z = feet_z
+
+        # Compute swing mask
         swing_mask = 1 - self._get_gait_phase()
 
-        # Reward swinging feet for being near the target height.
-        # use smoother reward function, Gaussian centered at target height 
-        target_h = self.cfg.rewards.target_feet_height
-        rew_pos = torch.exp(-((feet_z - target_h) ** 2) / (2 * 0.02 ** 2))   # sigma = 0.02 
-
-        # Apply this reward only to the feet that are currently swinging 
+        # feet height should be closed to target feet height at the peak
+        rew_pos = torch.abs(self.feet_height - self.cfg.rewards.target_feet_height) < 0.01
         rew_pos = torch.sum(rew_pos * swing_mask, dim=1)
-
+        self.feet_height *= ~contact
         return rew_pos
+    
+    # def _reward_feet_clearance(self): 
+    #     """
+    #     Calculates reward based on the clearance of the swing leg from the ground during movement.
+    #     Encourages appropriate lift of the feet during the swing phase of the gait.
+    #     """
+    #     # Get the current z-position of the feet
+    #     feet_z = self.rigid_state[:, self.feet_indices, 2]
+        
+    #     # Get swing mask (1 if foot is in swing phase, 0 if in stance)
+    #     swing_mask = 1 - self._get_gait_phase()
+
+    #     # Reward swinging feet for being near the target height.
+    #     # use smoother reward function, Gaussian centered at target height 
+    #     target_h = self.cfg.rewards.target_feet_height
+    #     rew_pos = torch.exp(-((feet_z - target_h) ** 2) / (2 * 0.02 ** 2))   # sigma = 0.02 
+
+    #     # Apply this reward only to the feet that are currently swinging 
+    #     rew_pos = torch.sum(rew_pos * swing_mask, dim=1)
+
+    #     return rew_pos
 
     def _reward_low_speed(self):
         """
