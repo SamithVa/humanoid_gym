@@ -87,29 +87,30 @@ def play(args):
     logger = Logger(env.dt)
     robot_index = 0 # which robot is used for logging
     joint_index = 1 # which joint is used for logging
-    stop_state_log = 200 # number of steps before plotting states
+    stop_state_log = 1000 # number of steps before plotting states 
     
-    # Setup CSV logging
-    log_dir = os.path.join(LEGGED_GYM_ROOT_DIR, 'debug_logs')
-    os.makedirs(log_dir, exist_ok=True)
-    log_file = os.path.join(log_dir, f'play_debug_{datetime.now().strftime("%Y%m%d_%H%M%S")}.csv')
-    
-    csv_file = open(log_file, 'w', newline='')
-    csv_writer = csv.writer(csv_file)
-    
-    # Write header - only log 41 observations for a single frame (not stacked)
-    header = ['timestep']
-    # Observation components (only first 41 from single frame)
-    header.extend([f'obs_{i}' for i in range(41)])
-    # Action components
-    header.extend([f'action_{i}' for i in range(env.num_actions)])
-    # State information
-    header.extend([f'dof_pos_{i}' for i in range(env.num_dof)])
-    header.extend([f'dof_vel_{i}' for i in range(env.num_dof)])
-    header.extend([f'torque_{i}' for i in range(env.num_dof)])
-    
-    csv_writer.writerow(header)
-    csv_file.flush()
+    # setup CSV logging if debug mode is enabled
+    if args.debug:
+        log_dir = os.path.join(LEGGED_GYM_ROOT_DIR, 'debug_logs')
+        os.makedirs(log_dir, exist_ok=True)
+        log_file = os.path.join(log_dir, f'play_debug_{datetime.now().strftime("%Y%m%d_%H%M%S")}.csv')
+        
+        csv_file = open(log_file, 'w', newline='')
+        csv_writer = csv.writer(csv_file)
+        
+        # Write header - only log 41 observations for a single frame (not stacked)
+        header = ['timestep']
+        # Observation components (only first 41 from single frame)
+        header.extend([f'obs_{i}' for i in range(41)])
+        # Action components
+        header.extend([f'action_{i}' for i in range(env.num_actions)])
+        # State information
+        header.extend([f'dof_pos_{i}' for i in range(env.num_dof)])
+        header.extend([f'dof_vel_{i}' for i in range(env.num_dof)])
+        header.extend([f'torque_{i}' for i in range(env.num_dof)])
+        
+        csv_writer.writerow(header)
+        csv_file.flush()
     
     if RENDER:
         camera_properties = gymapi.CameraProperties()
