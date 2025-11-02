@@ -150,16 +150,16 @@ def play(args):
 
         obs, critic_obs, rews, dones, infos = env.step(actions.detach())
 
-        # Log to CSV - only log at timesteps 10, 20, 30, 40, etc. (every 10 steps)
-        # if (i) % 10 == 0:
-        row = [i * 10] # timestep
-        row.extend(obs[robot_index][:41].cpu().numpy().tolist())
-        row.extend(actions[robot_index].cpu().detach().numpy().tolist())
-        row.extend(env.dof_pos[robot_index].cpu().numpy().tolist())
-        row.extend(env.dof_vel[robot_index].cpu().numpy().tolist())
-        row.extend(env.torques[robot_index].cpu().numpy().tolist())
-        csv_writer.writerow(row)
-        csv_file.flush()
+        # Log to CSV if debug mode is enabled
+        if args.debug:
+            row = [i * 10] # timestep
+            row.extend(obs[robot_index][:41].cpu().numpy().tolist())
+            row.extend(actions[robot_index].cpu().detach().numpy().tolist())
+            row.extend(env.dof_pos[robot_index].cpu().numpy().tolist())
+            row.extend(env.dof_vel[robot_index].cpu().numpy().tolist())
+            row.extend(env.torques[robot_index].cpu().numpy().tolist())
+            csv_writer.writerow(row)
+            csv_file.flush()
 
         if RENDER:
             env.gym.fetch_results(env.sim, True)
@@ -198,8 +198,9 @@ def play(args):
     if RENDER:
         video.release()
     
-    csv_file.close()
-    print(f"\nDebug log saved to: {log_file}")
+    if args.debug:
+        csv_file.close()
+        print(f"\nDebug log saved to: {log_file}")
 
 if __name__ == '__main__':
     EXPORT_POLICY = True
