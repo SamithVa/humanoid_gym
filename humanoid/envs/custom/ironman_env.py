@@ -425,7 +425,8 @@ class IronmanFreeEnv(LeggedRobot):
         stance_mask = self._get_gait_phase()
         measured_heights = torch.sum(
             self.rigid_state[:, self.feet_indices, 2] * stance_mask, dim=1) / torch.sum(stance_mask, dim=1)
-        base_height = self.root_states[:, 2] - (measured_heights - 0.05)
+        # base_height = self.root_states[:, 2] - (measured_heights - 0.05) # why there is a 0.05 offset here? NOTE
+        base_height = self.root_states[:, 2] - (measured_heights) 
         return torch.exp(-torch.abs(base_height - self.cfg.rewards.base_height_target) * 100)
 
     def _reward_base_acc(self):
@@ -518,7 +519,7 @@ class IronmanFreeEnv(LeggedRobot):
         Encourages appropriate lift of the feet during the swing phase of the gait.
         """
         # Get the current z-position of the feet
-        feet_z = self.rigid_state[:, self.feet_indices, 2] - 0.05
+        feet_z = self.rigid_state[:, self.feet_indices, 2]
         
         # Get swing mask (1 if foot is in swing phase, 0 if in stance)
         swing_mask = 1 - self._get_gait_phase()
@@ -526,7 +527,7 @@ class IronmanFreeEnv(LeggedRobot):
         # Reward swinging feet for being near the target height.
         # use smoother reward function, Gaussian centered at target height 
         target_h = self.cfg.rewards.target_feet_height
-        rew_pos = torch.exp(-((feet_z - target_h) ** 2) / (2 * 0.02 ** 2)) # sigma = 0.02 
+        rew_pos = torch.exp(-((feet_z - target_h) ** 2) / (2 * 0.02 ** 2))   # sigma = 0.02 
 
         # Apply this reward only to the feet that are currently swinging 
         rew_pos = torch.sum(rew_pos * swing_mask, dim=1)

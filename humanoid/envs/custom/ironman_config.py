@@ -56,6 +56,7 @@ class IronmanCfg(LeggedRobotCfg):
 
     class asset(LeggedRobotCfg.asset):
         file = '{LEGGED_GYM_ROOT_DIR}/resources/robots/i1/urdf/i1_1101.urdf'
+        # file = '/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/body_0926_walk_init/urdf/body_0926.urdf'
 
         name = "i1_1101"
         foot_name = "5" # the fifth link e.g "leg_l5"
@@ -69,8 +70,8 @@ class IronmanCfg(LeggedRobotCfg):
         fix_base_link = False
 
     class terrain(LeggedRobotCfg.terrain):
-        # mesh_type = 'plane'
-        mesh_type = 'trimesh'
+        mesh_type = 'plane'
+        # mesh_type = 'trimesh'
         curriculum = False
         # rough terrain only:
         measure_heights = False
@@ -98,7 +99,7 @@ class IronmanCfg(LeggedRobotCfg):
             height_measurements = 0.1
 
     class init_state(LeggedRobotCfg.init_state):
-        pos = [0.0, 0.0, 0.50] # x,y,z [m]
+        pos = [0.0, 0.0, 0.48] # x,y,z [m]
 
         # initialAngle = np.array([0.6,0.,0.,-0.9,0.28,0.6,0.,0.,-0.9,0.28])
 
@@ -123,10 +124,10 @@ class IronmanCfg(LeggedRobotCfg):
         # low stiffness for smooth torque, but less precise tracking
         # damping = {'2': 1, '1': 1, '3': 1, '4': 1, '5': 1}
 
-        stiffness = {'2': 20., '1': 60., '3': 20.,
-                     '4': 60., '5': 5.}
-        damping = {'2': 5, '1': 5, '3':
-                   5, '4': 5, '5': 5}
+        stiffness = {'2': 20., '1': 35., '3': 20.,
+                     '4': 35., '5': 3.}
+        damping = {'2': 1, '1': 1, '3':
+                  1, '4': 1, '5': 1}
 
         #  stiffness = {'2': 20., '1': 35., '3': 20.,
         #              '4': 35., '5': 2.}
@@ -183,18 +184,18 @@ class IronmanCfg(LeggedRobotCfg):
             heading = [-3.14, 3.14]
 
     class rewards:
-        base_height_target = 0.435 # from base_link to ground # 0.42941 m (walking init)
+        base_height_target = 0.43 # from base_link to ground # 0.42941 m (walking init)
         min_dist = 0.2 # feet min distance to other feet
         max_dist = 0.5 # feet max distance to other feet
         # put some settings here for LLM parameter tuning
-        target_joint_pos_scale = 0.20    # (rad) # original 0.26 （Best result 0.15)
+        target_joint_pos_scale = 0.15    # (rad) # original 0.26 （Best result 0.15)
         target_feet_height = 0.06       # original 0.06       # (m) target feet height when swinging
         cycle_time = 0.64          # sec
         # if true negative total rewards are clipped at zero (avoids early termination problems)
         only_positive_rewards = True
         # tracking reward = exp(error*sigma)
         tracking_sigma = 5
-        max_contact_force = 200  # [N] Forces above this value are penalized # TODO According to the robot weight, let assume our robot is 10kg, peak around 50-150N
+        max_contact_force = 150  # [N] Forces above this value are penalized # TODO According to the robot weight, let assume our robot is 10kg, peak around 50-150N
 
         class scales: # reward scales
             # reference motion tracking
