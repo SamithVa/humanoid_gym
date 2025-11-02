@@ -174,28 +174,30 @@ def run_mujoco(policy, cfg):
     mujoco.mj_step(model, data)
     viewer = mujoco_viewer.MujocoViewer(model, data)
 
-    # Setup CSV logging
-    log_dir = os.path.join(LEGGED_GYM_ROOT_DIR, 'debug_logs')
-    os.makedirs(log_dir, exist_ok=True)
-    log_file = os.path.join(log_dir, f'sim2sim_debug_{datetime.now().strftime("%Y%m%d_%H%M%S")}.csv')
+    debug_mode = cfg.sim_config.debug_mode
+    if debug_mode:
+        # Setup CSV logging
+        log_dir = os.path.join(LEGGED_GYM_ROOT_DIR, 'debug_logs')
+        os.makedirs(log_dir, exist_ok=True)
+        log_file = os.path.join(log_dir, f'sim2sim_debug_{datetime.now().strftime("%Y%m%d_%H%M%S")}.csv')
+        
+        csv_file = open(log_file, 'w', newline='')
+        csv_writer = csv.writer(csv_file)
     
-    csv_file = open(log_file, 'w', newline='')
-    csv_writer = csv.writer(csv_file)
-    
-    # Write header
-    header = ['timestep']
-    # Observation components
-    header.extend([f'obs_{i}' for i in range(cfg.env.num_single_obs)])
-    # Action components
-    header.extend([f'action_{i}' for i in range(cfg.env.num_actions)])
-    # State information
-    header.extend([f'q_{i}' for i in range(cfg.env.num_actions)])
-    header.extend([f'dq_{i}' for i in range(cfg.env.num_actions)])
-    header.extend([f'target_q_{i}' for i in range(cfg.env.num_actions)])
-    header.extend([f'tau_{i}' for i in range(cfg.env.num_actions)])
-    
-    csv_writer.writerow(header)
-    csv_file.flush()
+        # Write header
+        header = ['timestep']
+        # Observation components
+        header.extend([f'obs_{i}' for i in range(cfg.env.num_single_obs)])
+        # Action components
+        header.extend([f'action_{i}' for i in range(cfg.env.num_actions)])
+        # State information
+        header.extend([f'q_{i}' for i in range(cfg.env.num_actions)])
+        header.extend([f'dq_{i}' for i in range(cfg.env.num_actions)])
+        header.extend([f'target_q_{i}' for i in range(cfg.env.num_actions)])
+        header.extend([f'tau_{i}' for i in range(cfg.env.num_actions)])
+
+        csv_writer.writerow(header)
+        csv_file.flush()
 
     target_q = np.zeros((cfg.env.num_actions), dtype=np.double)
     action = np.zeros((cfg.env.num_actions), dtype=np.double)
@@ -206,6 +208,10 @@ def run_mujoco(policy, cfg):
 
     count_lowlevel = 0
 
+    # the first 100 steps with zero target_q to let the robot settle down
+    init_steps = 100
+    for _ in tqdm(range(init_steps), desc="Initializing (first 100 dt steps)..."):
+        mujoco.mj_step(model, data)
 
     for _ in tqdm(range(int(cfg.sim_config.sim_duration / cfg.sim_config.dt)), desc="Simulating..."):
 
@@ -215,6 +221,7 @@ def run_mujoco(policy, cfg):
         dq = dq[-cfg.env.num_actions:]
 
         # 1000hz -> 100hz
+        # Only start observations and actions after init_steps
         if count_lowlevel % cfg.sim_config.decimation == 0:
 
             obs = np.zeros([1, cfg.env.num_single_obs], dtype=np.float32)
@@ -246,14 +253,24 @@ def run_mujoco(policy, cfg):
             # print(f"policy Output at step {count_lowlevel}: {action}")  # Debugging: Print raw action
             action = np.clip(action, -cfg.normalization.clip_actions, cfg.normalization.clip_actions)
 
-            # init target_q with zero for first 500 steps
-            if count_lowlevel < 300:
-                target_q = np.zeros((cfg.env.num_actions), dtype=np.double)
-            else:
-                target_q = action * cfg.control.action_scale
-
-
-
+            target_q = action * cfg.control.action_scale
+            
+            # Log to CSV at each control step (only after init_steps)
+            if debug_mode:
+                row = [count_lowlevel]
+                row.extend(obs[0, :].tolist())
+                row.extend(action.tolist())
+                row.extend(q.tolist())
+                row.extend(dq.tolist())
+                row.extend(target_q.tolist())
+                # Calculate tau for logging
+                tau_log = pd_control(target_q, q, cfg.robot_config.kps,
+                                    np.zeros((cfg.env.num_actions), dtype=np.double), dq, cfg.robot_config.kds)
+                tau_log = np.clip(tau_log, -cfg.robot_config.tau_limit, cfg.robot_config.tau_limit)
+                row.extend(tau_log.tolist())
+                csv_writer.writerow(row)
+                csv_file.flush()
+           
         target_dq = np.zeros((cfg.env.num_actions), dtype=np.double)
         # Generate PD control
         tau = pd_control(target_q, q, cfg.robot_config.kps,
@@ -261,25 +278,15 @@ def run_mujoco(policy, cfg):
         tau = np.clip(tau, -cfg.robot_config.tau_limit, cfg.robot_config.tau_limit)  # Clamp torques
         data.ctrl = tau
 
-        # Log to CSV at each control step
-        if count_lowlevel % cfg.sim_config.decimation == 0:
-            row = [count_lowlevel]
-            row.extend(obs[0, :].tolist())
-            row.extend(action.tolist())
-            row.extend(q.tolist())
-            row.extend(dq.tolist())
-            row.extend(target_q.tolist())
-            row.extend(tau.tolist())
-            csv_writer.writerow(row)
-            csv_file.flush()
-
         mujoco.mj_step(model, data)
         viewer.render()
         count_lowlevel += 1
 
     viewer.close()
-    csv_file.close()
-    print(f"\nDebug log saved to: {log_file}")
+
+    if debug_mode:
+        csv_file.close()
+        print(f"\nDebug log saved to: {log_file}")
 
 
 if __name__ == '__main__':
@@ -289,6 +296,7 @@ if __name__ == '__main__':
     parser.add_argument('--load_model', type=str, required=True,
                         help='Run to load from.')
     parser.add_argument('--terrain', action='store_true', help='terrain or plane')
+    parser.add_argument('--debug', action='store_true', help='enable debug mode')
     args = parser.parse_args()
 
     class Sim2simCfg(IronmanCfg):
@@ -298,9 +306,12 @@ if __name__ == '__main__':
                 mujoco_model_path = f'{LEGGED_GYM_ROOT_DIR}/resources/robots/XBot/mjcf/XBot-L-terrain.xml' # use original terrain
             else:
                 mujoco_model_path = f'{LEGGED_GYM_ROOT_DIR}/resources/robots/i1/mjcf/i1_1101.xml'
-            sim_duration = 2.0
+            sim_duration = 1.0
             dt = 0.001
             decimation = 10
+
+            # debugging
+            debug_mode = args.debug
 
         class robot_config:
             
@@ -309,8 +320,8 @@ if __name__ == '__main__':
             # damping = {'2': 5, '1': 5, '3':
             #         5, '4': 5, '5': 3}
             # actuator robot parameters
-            kps = np.array([20, 60, 20, 40, 1, 20, 60, 20, 60, 1], dtype=np.double) # leg_roll, leg_pitch, leg_yaw, knee, ankle_pitch
-            kds = np.array(np.ones(10) * 3, dtype=np.double)
+            kps = np.array([20, 60, 20, 40, 5, 20, 60, 20, 40, 5], dtype=np.double) # leg_roll, leg_pitch, leg_yaw, knee, ankle_pitch
+            kds = np.array(np.ones(10) * 5, dtype=np.double)
             tau_limit = 200. * np.ones(10, dtype=np.double)
 
     policy = torch.jit.load(args.load_model)
