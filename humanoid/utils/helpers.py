@@ -231,6 +231,13 @@ def get_args():
             "type": int,
             "help": "Maximum number of training iterations. Overrides config file if provided.",
         },
+        # adding debug
+        {
+            "name": "--debug",
+            "action": "store_true",
+            "default": False,
+            "help": "Enable debug mode, save obs, actions to csv",
+        }
     ]
     # parse arguments
     args = gymutil.parse_arguments(
