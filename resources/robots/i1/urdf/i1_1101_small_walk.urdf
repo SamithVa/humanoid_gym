@@ -1,17 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
 <robot name="i1_1101">
-  <mujoco>
-    <compiler 
-    meshdir="../mjcf_meshes/" 
-    balanceinertia="true" 
-    discardvisual="false" />
-  </mujoco>
-  <!-- add this to output inertia of base_link -->
-  <link name="world"></link>
-  <joint name="floating_base_joint" type="floating">
-    <parent link="world" />
-    <child link="base_link" /> 
-  </joint> 
   <link name="base_link">
     <inertial>
       <origin xyz="0.001244 -0.006461 0.133371" rpy="0 0 0" />
@@ -56,7 +44,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="loin_yaw_joint" type="revolute">
+ <joint name="loin_yaw_joint" type="fixed">
     <origin xyz="0 0 0" rpy="0 0 0" />
     <parent link="base_link" />
     <child link="loin_yaw" />
@@ -86,11 +74,11 @@
     </collision>
   </link>
   <joint name="leg_l1_joint" type="revolute">
-    <origin xyz="0 0.0495999999994021 -0.0620000000004782" rpy="0 -0.35 0" />
+    <origin xyz="0 0.0495999999994021 -0.0620000000004782" rpy="0 -0.2 0" />
     <parent link="loin_yaw" />
     <child link="leg_l1" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.7" upper="0.9" effort="14" velocity="4" />
+    <limit lower="-0.9" upper="0.7" effort="150" velocity="12" />
   </joint>
   <link name="leg_l2">
     <inertial>
@@ -107,19 +95,19 @@
         <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
-    <collision>
+    <!-- <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <mesh filename="../mjcf_meshes/leg_l2.STL" />
       </geometry>
-    </collision>
+    </collision> -->
   </link>
   <joint name="leg_l2_joint" type="revolute">
     <origin xyz="0.0271000000005301 0.0459499999996874 0" rpy="0 0 0" />
     <parent link="leg_l1" />
     <child link="leg_l2" />
     <axis xyz="-1 0 0" />
-    <limit lower="-0.7" upper="0" effort="14" velocity="4" />
+    <limit lower="-0.7" upper="0" effort="50" velocity="12" />
   </joint>
   <link name="leg_l3">
     <inertial>
@@ -136,19 +124,19 @@
         <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
-    <!-- <collision>
+    <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <mesh filename="../mjcf_meshes/leg_l3.STL" />
       </geometry>
-    </collision> -->
+    </collision>
   </link>
   <joint name="leg_l3_joint" type="revolute">
     <origin xyz="-0.0271499999934677 0 -0.0740000000023893" rpy="0 0 0" />
     <parent link="leg_l2" />
     <child link="leg_l3" />
     <axis xyz="0 0 -1" />
-    <limit lower="-0.8" upper="0.8" effort="14" velocity="4" />
+    <limit lower="-0.8" upper="0.8" effort="150" velocity="12" />
   </joint>
   <link name="leg_l4">
     <inertial>
@@ -173,11 +161,11 @@
     </collision> -->
   </link>
   <joint name="leg_l4_joint" type="revolute">
-    <origin xyz="0 0.0271000000001188 -0.117049999999972" rpy="0 0.7 0" />
+    <origin xyz="0 0.0271000000001188 -0.117049999999972" rpy="0 0.4 0" />
     <parent link="leg_l3" />
     <child link="leg_l4" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.1" upper="1.6"  effort="14" velocity="4" />
+    <limit lower="-0.1" upper="1.6" effort="150" velocity="12" />
   </joint>
   <link name="leg_l5">
     <inertial>
@@ -202,11 +190,11 @@
     </collision>
   </link>
   <joint name="leg_l5_joint" type="revolute">
-    <origin xyz="0 -0.00709999999740331 -0.200000000000092" rpy="0 -0.35 0" />
+    <origin xyz="0 -0.00709999999740331 -0.200000000000092" rpy="0 -0.2 0" />
     <parent link="leg_l4" />
     <child link="leg_l5" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.9" upper="0.2"  effort="14" velocity="4" />
+    <limit lower="-0.9" upper="0.2" effort="40" velocity="6" />
   </joint>
   <link name="leg_r1">
     <inertial>
@@ -231,11 +219,11 @@
     </collision>
   </link>
   <joint name="leg_r1_joint" type="revolute">
-    <origin xyz="0 -0.0496000000005979 -0.0619999999995216" rpy="0 -0.35 0" />
+    <origin xyz="0 -0.0496000000005979 -0.0619999999995216" rpy="0 -0.2 0" />
     <parent link="loin_yaw" />
     <child link="leg_r1" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.7" upper="0.9" effort="14" velocity="4" />
+    <limit lower="-0.9" upper="0.7" effort="150" velocity="12" />
   </joint>
   <link name="leg_r2">
     <inertial>
@@ -264,7 +252,7 @@
     <parent link="leg_r1" />
     <child link="leg_r2" />
     <axis xyz="-1 0 0" />
-    <limit lower="0" upper="0.7"  effort="14" velocity="4" />
+    <limit lower="-0.7" upper="0" effort="50" velocity="12" />
   </joint>
   <link name="leg_r3">
     <inertial>
@@ -293,7 +281,7 @@
     <parent link="leg_r2" />
     <child link="leg_r3" />
     <axis xyz="0 0 -1" />
-    <limit lower="-0.8" upper="0.8"  effort="14" velocity="4" />
+    <limit lower="-0.8" upper="0.8" effort="150" velocity="12" />
   </joint>
   <link name="leg_r4">
     <inertial>
@@ -318,11 +306,11 @@
     </collision> -->
   </link>
   <joint name="leg_r4_joint" type="revolute">
-    <origin xyz="0 -0.0270999999988379 -0.117050000000269" rpy="0 0.7 0" />
+    <origin xyz="0 -0.0270999999988379 -0.117050000000269" rpy="0 0.4 0" />
     <parent link="leg_r3" />
     <child link="leg_r4" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.1" upper="1.6"  effort="14" velocity="4" />
+    <limit lower="-0.1" upper="1.6" effort="150" velocity="12" />
   </joint>
   <link name="leg_r5">
     <inertial>
@@ -347,11 +335,11 @@
     </collision>
   </link>
   <joint name="leg_r5_joint" type="revolute">
-    <origin xyz="0 0.00715000000367917 -0.200000000000334" rpy="0 -0.35 0" />
+    <origin xyz="0 0.00715000000367917 -0.200000000000334" rpy="0 -0.2 0" />
     <parent link="leg_r4" />
     <child link="leg_r5" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.9" upper="0.2"  effort="14" velocity="4"/>
+    <limit lower="-0.9" upper="0.2" effort="40" velocity="6" />
   </joint>
   <link name="r_shoulder_pitch">
     <inertial>
@@ -375,7 +363,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="r_shoulder_pitch_joint" type="revolute">
+  <joint name="r_shoulder_pitch_joint" type="fixed">
     <origin xyz="0.0015211 -0.1421 0.19236" rpy="0 0 0.010704" />
     <parent link="base_link" />
     <child link="r_shoulder_pitch" />
@@ -404,7 +392,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="r_shoulder_roll_joint" type="revolute">
+  <joint name="r_shoulder_roll_joint" type="fixed">
     <origin xyz="0.0294988163604422 -0.0489500000001077 0.000264259939019407" rpy="0 0 -0.0107043277626806" />
     <parent link="r_shoulder_pitch" />
     <child link="r_shoulder_roll" />
@@ -433,7 +421,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="r_shoulder_yaw_joint" type="revolute">
+  <joint name="r_shoulder_yaw_joint" type="fixed">
     <origin xyz="-0.0332572504317691 -0.000356010107427529 -0.0828512585933959" rpy="0 0 0" />
     <parent link="r_shoulder_roll" />
     <child link="r_shoulder_yaw" />
@@ -462,7 +450,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="r_arm_pitch_joint" type="revolute">
+ <joint name="r_arm_pitch_joint" type="fixed">
     <origin xyz="0.00108857599788274 -0.0155142365719634 -0.102970782946762" rpy="0 0 0" />
     <parent link="r_shoulder_yaw" />
     <child link="r_arm_pitch" />
@@ -491,7 +479,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="l_shoulder_pitch_joint" type="revolute">
+  <joint name="l_shoulder_pitch_joint" type="fixed">
     <origin xyz="-0.0015211 0.1421 0.19236" rpy="0 0 0" />
     <parent link="base_link" />
     <child link="l_shoulder_pitch" />
@@ -520,7 +508,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="l_shoulder_roll_joint" type="revolute">
+<joint name="l_shoulder_roll_joint" type="fixed">
     <origin xyz="0.028961914097807 0.0492628342080569 -0.000856269663819131" rpy="0 0 0" />
     <parent link="l_shoulder_pitch" />
     <child link="l_shoulder_roll" />
@@ -549,7 +537,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="l_shoulder_yaw_joint" type="revolute">
+  <joint name="l_shoulder_yaw_joint" type="fixed">
     <origin xyz="-0.0363796936599959 -0.000389435038538916 -0.0815283308399195" rpy="0 0 0" />
     <parent link="l_shoulder_roll" />
     <child link="l_shoulder_yaw" />
@@ -578,7 +566,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="l_arm_pitch_joint" type="revolute">
+  <joint name="l_arm_pitch_joint" type="fixed">
     <origin xyz="-0.00315495415371205 0.0154921165359136 -0.10293149731973" rpy="0 0 0" />
     <parent link="l_shoulder_yaw" />
     <child link="l_arm_pitch" />
