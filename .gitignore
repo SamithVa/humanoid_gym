@@ -65,18 +65,36 @@ videos
 __pycache__
 
 # video 
-*.mp4, *.avi, *.mov, *.mkv
+*.avi
+*.mov
+*.mkv
+
 # image
-*.png, *.jpg, *.jpeg, *.gif, *.bmp, *.tiff
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.tiff
+*.gif
 
 # usd files
-*.usd, *.usda, *.usdc, *.usdz
+*.usd
+*.usda
+*.usdc
+*.usdz
 
 # zip files
-*.zip, *.tar, *.gz, *.rar, *.7z
+*.zip
+*.tar
+*.gz
+*.rar
+*.7z
 
 # log files
-*.log, *.csv, *.json
+*.log
+*.csv
+*.json
 
 # numpy 
-*.npy, *.npz
+*.npy
+*.npz
