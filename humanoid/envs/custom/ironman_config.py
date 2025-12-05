@@ -56,9 +56,10 @@ class IronmanCfg(LeggedRobotCfg):
 
     class asset(LeggedRobotCfg.asset):
         file = '{LEGGED_GYM_ROOT_DIR}/resources/robots/i1/urdf/i1_1101.urdf'
-        # file = '/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/body_0926_walk_init/urdf/body_0926.urdf'
+        # file = '{LEGGED_GYM_ROOT_DIR}/resources/robots/i1/urdf/i1_1101_small_walk.urdf'
 
         name = "i1_1101"
+        # name = "body_0926"
         foot_name = "5" # the fifth link e.g "leg_l5"
         knee_name = "4" # the fourth link e.g "leg_l4"
 
@@ -70,9 +71,9 @@ class IronmanCfg(LeggedRobotCfg):
         fix_base_link = False
 
     class terrain(LeggedRobotCfg.terrain):
-        mesh_type = 'plane'
-        # mesh_type = 'trimesh'
-        curriculum = False
+        # mesh_type = 'plane'
+        mesh_type = 'trimesh'
+        curriculum = True
         # rough terrain only:
         measure_heights = False
         static_friction = 0.6
@@ -118,21 +119,22 @@ class IronmanCfg(LeggedRobotCfg):
 
     class control(LeggedRobotCfg.control):
         # PD Drive parameters: #TODO
-        # stiffness = {'2': 15., '1': 40., '3': 15.,
-        #              '4': 40., '5': 2.}
         # high stiffness for precise tracking, but big spikes in torque
         # low stiffness for smooth torque, but less precise tracking
-        # damping = {'2': 1, '1': 1, '3': 1, '4': 1, '5': 1}
 
-        stiffness = {'2': 20., '1': 35., '3': 20.,
-                     '4': 35., '5': 3.}
-        damping = {'2': 1, '1': 1, '3':
-                  1, '4': 1, '5': 1}
+        # base_scale
+        # stiffness = {'1': 35, '2': 20, '3': 20,
+        #              '4': 35, '5': 2}
+        # damping = {'2': 1, '1': 1, '3': 1, '4': 1, '5': 1}  
 
-        #  stiffness = {'2': 20., '1': 35., '3': 20.,
-        #              '4': 35., '5': 2.}
-        # damping = {'2': 1, '1': 1, '3':
-        #            1, '4': 1, '5': 1}
+        stiffness = {'1': 40, '2': 20, '3': 20, '4': 40, '5': 40}
+        damping = {'1': 6, '2': 3, '3': 3, '4': 6, '5': 25}
+
+        # @classmethod
+        # def _compute_scaled_params(cls):
+        #     scale = cls.stiffness_scales[cls.scale_index]
+        #     cls.stiffness = {k: v * scale for k, v in cls.stiffness.items()}
+        #     cls.damping = {k: v * scale for k, v in cls.damping.items()}
 
         # action scale: target angle = actionScale * action + defaultAngle
         action_scale = 0.25
@@ -162,7 +164,7 @@ class IronmanCfg(LeggedRobotCfg):
         randomize_friction = True
         friction_range = [0.1, 2.0]
         randomize_base_mass = True
-        added_mass_range = [-3., 3.]  # [kg]
+        added_mass_range = [-1, 1]  # [kg]
         push_robots = True
         push_interval_s = 4
         max_push_vel_xy = 0.2
@@ -184,11 +186,11 @@ class IronmanCfg(LeggedRobotCfg):
             heading = [-3.14, 3.14]
 
     class rewards:
-        base_height_target = 0.43 # from base_link to ground # 0.42941 m (walking init)
-        min_dist = 0.2 # feet min distance to other feet
-        max_dist = 0.5 # feet max distance to other feet
-        # put some settings here for LLM parameter tuning
-        target_joint_pos_scale = 0.15    # (rad) # original 0.26 （Best result 0.15)
+        base_height_target = 0.46 # from base_link to ground # 0.42941 m (walking init), 0.4566
+        min_dist = 0.2 # feet min distance to other feet (standing: 0.23m, allow 0.18m for dynamic walking) # NOTE (original 0.2)
+        max_dist = 0.5 # feet max distance to other feet (standing: 0.23m, allow up to 0.32m for extended stride) # NOTE (original 0.5)
+        
+        target_joint_pos_scale = 0.20    # (rad) # original 0.26 （Best result 0.15)
         target_feet_height = 0.06       # original 0.06       # (m) target feet height when swinging
         cycle_time = 0.64          # sec
         # if true negative total rewards are clipped at zero (avoids early termination problems)
@@ -204,7 +206,8 @@ class IronmanCfg(LeggedRobotCfg):
             feet_contact_number = 1.2 
             # gait
             feet_air_time = 1.
-            foot_slip = -0.05
+            foot_slip = -0.05 # penalize foot slip
+            # foot_slip = -0.2 # penalize foot slip
             feet_distance = 0.2
             knee_distance = 0.2
             # contact
@@ -251,7 +254,7 @@ class IronmanCfgPPO(LeggedRobotCfgPPO):
     class algorithm(LeggedRobotCfgPPO.algorithm):
         entropy_coef = 0.001
         learning_rate = 1e-5
-        num_learning_epochs = 2
+        num_learning_epochs = 4 # original 2
         gamma = 0.994
         lam = 0.9
         num_mini_batches = 4
