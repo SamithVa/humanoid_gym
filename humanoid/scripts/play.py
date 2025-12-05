@@ -44,7 +44,7 @@ from isaacgym.torch_utils import *
 import torch
 from tqdm import tqdm
 from datetime import datetime
-
+import time # for debug sleep
 
 def play(args):
     env_cfg, train_cfg = task_registry.get_cfgs(name=args.task)
@@ -136,8 +136,9 @@ def play(args):
         if not os.path.exists(experiment_dir):
             os.mkdir(experiment_dir)
         video = cv2.VideoWriter(dir, fourcc, 50.0, (1920, 1080))
-
     for i in tqdm(range(stop_state_log)):
+
+        # time.sleep(5)
         # print(f'Step {i}, observation: {obs[0,:41]}') # Print first 41 elements of observation of first frame
         actions = policy(obs.detach()) # * 0.
         # print(f'Action: {actions[0]}') # Print action for first robot
@@ -150,10 +151,11 @@ def play(args):
 
         obs, critic_obs, rews, dones, infos = env.step(actions.detach())
 
+        num_obs = obs.shape[1] // env.cfg.env.frame_stack # number of observation components for a single frame
         # Log to CSV if debug mode is enabled
         if args.debug:
             row = [i * 10] # timestep
-            row.extend(obs[robot_index][:41].cpu().numpy().tolist())
+            row.extend(obs[robot_index][:num_obs].cpu().numpy().tolist())
             row.extend(actions[robot_index].cpu().detach().numpy().tolist())
             row.extend(env.dof_pos[robot_index].cpu().numpy().tolist())
             row.extend(env.dof_vel[robot_index].cpu().numpy().tolist())

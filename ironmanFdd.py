@@ -88,8 +88,8 @@ def estimate_scales(robot_model, rdata, q0_standing):
 
 # --- Configuration ---
 # URDF model path
-modelPath = './resources/robots/body_0926_walk_init/'
-URDF_FILENAME = "urdf/body_0926.urdf"
+modelPath = './resources/robots/i1/'
+URDF_FILENAME = "urdf/i1_1101.urdf"
 
 # --- Model Loading ---
 # Load the full model with a floating base (JointModelFreeFlyer)
