@@ -1,11 +1,17 @@
 <?xml version='1.0' encoding='utf-8'?>
 <robot name="i1_1101_full_body">
-  <!-- <mujoco>
+  <mujoco>
     <compiler 
     meshdir="../mjcf_meshes/" 
     balanceinertia="true" 
     discardvisual="false" />
-  </mujoco> -->
+  </mujoco>
+  <!-- add this to output inertia of base_link -->
+  <link name="world"></link>
+  <joint name="floating_base_joint" type="floating">
+    <parent link="world" />
+    <child link="base_link" /> 
+  </joint> 
   <link name="base_link">
     <inertial>
       <origin xyz="0.001244 -0.006461 0.133371" rpy="0 0 0" />
@@ -370,11 +376,11 @@
     </collision>
   </link>
   <joint name="r_shoulder_pitch_joint" type="revolute">
-    <origin xyz="0.0015211 -0.1421 0.19236" rpy="0 0 0" />
+    <origin xyz="0.0015211 -0.1421 0.19236" rpy="0 -0.15 0" />
     <parent link="base_link" />
     <child link="r_shoulder_pitch" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.5" upper="0.5" effort="14" velocity="4" />
+    <limit lower="-0.5" upper="0.5" effort="10" velocity="3" />
   </joint>
   <link name="r_shoulder_roll">
     <inertial>
@@ -403,7 +409,7 @@
     <parent link="r_shoulder_pitch" />
     <child link="r_shoulder_roll" />
     <axis xyz="0.999902588164708 0.010703693844858 0.00895796403171279" />
-    <limit lower="-1.5" upper="0" effort="14" velocity="4" />
+    <limit lower="-1.5" upper="0" effort="10" velocity="3" />
   </joint>
   <link name="r_shoulder_yaw">
     <inertial>
@@ -432,7 +438,7 @@
     <parent link="r_shoulder_roll" />
     <child link="r_shoulder_yaw" />
     <axis xyz="0.0290244273796275 0.000310698861993819 0.999578654274641" />
-    <limit lower="-1.5" upper="1.5" effort="14" velocity="4" />
+    <limit lower="-1.5" upper="1.5" effort="10" velocity="3" />
   </joint>
   <link name="r_arm_pitch">
     <inertial>
@@ -461,7 +467,7 @@
     <parent link="r_shoulder_yaw" />
     <child link="r_arm_pitch" />
     <axis xyz="0.010704123340247 -0.999942709230642 0" />
-    <limit lower="-1.5" upper="1.5" effort="14" velocity="4" />
+    <limit lower="-1.5" upper="1.5" effort="10" velocity="3" />
   </joint>
   <link name="l_shoulder_pitch">
     <inertial>
@@ -486,11 +492,11 @@
     </collision>
   </link>
   <joint name="l_shoulder_pitch_joint" type="revolute">
-    <origin xyz="0.0015211 0.1421 0.19236" rpy="0 0 0" />
+    <origin xyz="0.0015211 0.1421 0.19236" rpy="0 -0.15 0" />
     <parent link="base_link" />
     <child link="l_shoulder_pitch" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.5" upper="0.5" effort="14" velocity="4" />
+    <limit lower="-0.5" upper="0.5" effort="10" velocity="3" />
   </joint>
   <link name="l_shoulder_roll">
     <inertial>
@@ -522,7 +528,7 @@
     <parent link="l_shoulder_pitch" />
     <child link="l_shoulder_roll" />
     <axis xyz="-0.999521387644461 -0.0106996131992724 0.0290260903098726" />
-    <limit lower="-1.5" upper="0" effort="154" velocity="4" />
+    <limit lower="-1.5" upper="0" effort="10" velocity="3" />
   </joint>
   <link name="l_shoulder_yaw">
     <inertial>
@@ -552,7 +558,7 @@
     <parent link="l_shoulder_roll" />
     <child link="l_shoulder_yaw" />
     <axis xyz="0.0290244273796269 0.000310698860122039 0.999578654274641" />
-    <limit lower="-1.5" upper="1.5" effort="14" velocity="4" />
+    <limit lower="-1.5" upper="1.5" effort="10" velocity="3" />
   </joint>
   <link name="l_arm_pitch">
     <inertial>
@@ -581,7 +587,7 @@
     <parent link="l_shoulder_yaw" />
     <child link="l_arm_pitch" />
     <axis xyz="0.010704123340247 -0.999942709230642 0" />
-    <limit lower="-1.5" upper="1.5" effort="14" velocity="4" />
+    <limit lower="-1.5" upper="1.5" effort="10" velocity="3" />
   </joint>
   <link name="head">
     <inertial>
