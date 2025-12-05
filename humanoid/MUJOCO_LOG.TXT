@@ -1,3 +1,0 @@
-Thu Oct 30 21:26:41 2025
-WARNING: mju_openResource: unknown file '/data/wanshan/Desktop/robotics/humanoid-gym/resources/robots/i1/mjcf/i1_1030_test.xml'
-

@@ -38,12 +38,14 @@ from .custom.humanoid_env import XBotLFreeEnv
 # custom model
 from .custom.ironman_config import IronmanCfg, IronmanCfgPPO
 from .custom.ironman_env import IronmanFreeEnv
-from .custom.pandaman_config import PandamanCfg, PandamanCfgPPO
-from .custom.pandaman_env import PandamanFreeEnv
+
+# full body 
+from .custom.ironman_full_config import IronmanFullCfg, IronmanFullCfgPPO
+from .custom.ironman_full_env import IronmanFullFreeEnv
 
 from humanoid.utils.task_registry import task_registry
 
 
 task_registry.register( "humanoid_ppo", XBotLFreeEnv, XBotLCfg(), XBotLCfgPPO() )
 task_registry.register( "ironman_ppo", IronmanFreeEnv, IronmanCfg(), IronmanCfgPPO() )
-task_registry.register( "pandaman_ppo", PandamanFreeEnv, PandamanCfg(), PandamanCfgPPO() )
+task_registry.register( "ironman_full_ppo", IronmanFullFreeEnv, IronmanFullCfg(), IronmanFullCfgPPO() )
