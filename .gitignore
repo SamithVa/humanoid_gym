@@ -63,3 +63,14 @@ videos
 # other
 *.egg-info
 __pycache__
+
+# video 
+*.mp4, *.avi, *.mov, *.mkv
+# image
+*.png, *.jpg, *.jpeg, *.gif, *.bmp, *.tiff
+
+# usd files
+*.usd, *.usda, *.usdc, *.usdz
+
+# zip files
+*.zip, *.tar, *.gz, *.rar, *.7z
