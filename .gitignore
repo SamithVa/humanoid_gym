@@ -10,7 +10,6 @@ wandb/
 .ipynb_checkpoints/
 *.npy
 test_data/
-*.ipynb
 # Compiled Java class files
 *.class
 
