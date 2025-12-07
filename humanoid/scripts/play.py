@@ -98,10 +98,13 @@ def play(args):
         csv_file = open(log_file, 'w', newline='')
         csv_writer = csv.writer(csv_file)
         
-        # Write header - only log 41 observations for a single frame (not stacked)
+        # Calculate number of observations in a single frame (not stacked)
+        num_obs = obs.shape[1] // env.cfg.env.frame_stack
+        
+        # Write header - only log observations for a single frame (not stacked)
         header = ['timestep']
-        # Observation components (only first 41 from single frame)
-        header.extend([f'obs_{i}' for i in range(41)])
+        # Observation components (only first num_obs from single frame)
+        header.extend([f'obs_{i}' for i in range(num_obs)])
         # Action components
         header.extend([f'action_{i}' for i in range(env.num_actions)])
         # State information
