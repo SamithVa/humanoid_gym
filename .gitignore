@@ -97,3 +97,7 @@ __pycache__
 # numpy 
 *.npy
 *.npz
+
+# isaacgym dir 
+isaacgym/
+

@@ -147,7 +147,7 @@ def play(args):
         # print(f'Action: {actions[0]}') # Print action for first robot
         
         if FIX_COMMAND:
-            env.commands[:, 0] = 0.5    # 1.0
+            env.commands[:, 0] = 0.2    # 1.0
             env.commands[:, 1] = 0.
             env.commands[:, 2] = 0.
             env.commands[:, 3] = 0.
