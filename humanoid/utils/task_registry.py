@@ -153,8 +153,10 @@ class TaskRegistry():
         if log_dir is not None:
             os.makedirs(log_dir, exist_ok=True)
             config_path = os.path.join(log_dir, 'config.yaml')
+            # Convert config to wandb-style format with 'value' keys for consistency
+            wandb_style_cfg = {k: {'value': v} for k, v in all_cfg.items()}
             with open(config_path, 'w') as f:
-                yaml.dump(all_cfg, f, default_flow_style=False, sort_keys=False)
+                yaml.dump(wandb_style_cfg, f, default_flow_style=False, sort_keys=False)
             print(f"Configuration saved to: {config_path}")
         
         runner_class = eval(train_cfg_dict["runner_class_name"])

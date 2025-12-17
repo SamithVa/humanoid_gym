@@ -33,6 +33,7 @@ import os
 import cv2
 import csv
 import numpy as np
+import yaml
 from isaacgym import gymapi
 from humanoid import LEGGED_GYM_ROOT_DIR
 
@@ -46,8 +47,83 @@ from tqdm import tqdm
 from datetime import datetime
 import time # for debug sleep
 
+def load_yaml_config(yaml_path):
+    """Load configuration from YAML file."""
+    with open(yaml_path, 'r') as f:
+        config = yaml.safe_load(f)
+    
+    # Handle wandb config format with 'value' keys
+    processed_config = {}
+    for key, val in config.items():
+        if isinstance(val, dict) and 'value' in val:
+            processed_config[key] = val['value']
+        else:
+            processed_config[key] = val
+    
+    return processed_config
+
+def update_cfg_from_dict(cfg, config_dict, prefix=''):
+    """Recursively update config object from dictionary."""
+    for key, value in config_dict.items():
+        if hasattr(cfg, key):
+            attr = getattr(cfg, key)
+            # If the attribute is a nested config class and value is a dict, recurse
+            if hasattr(attr, '__dict__') and isinstance(value, dict):
+                update_cfg_from_dict(attr, value, prefix=f"{prefix}{key}.")
+            else:
+                # Set the attribute value
+                try:
+                    setattr(cfg, key, value)
+                    print(f"  {prefix}{key} = {value}")
+                except Exception as e:
+                    print(f"  Warning: Could not set {prefix}{key}: {e}")
+        else:
+            print(f"  Warning: {prefix}{key} not found in config, skipping")
+
 def play(args):
     env_cfg, train_cfg = task_registry.get_cfgs(name=args.task)
+    
+    # Auto-find config file from load_run if not explicitly provided
+    config_file = args.config_file if hasattr(args, 'config_file') else None
+    if config_file is None and hasattr(args, 'load_run') and args.load_run:
+        # Try to find config.yaml in the load_run directory
+        log_root = os.path.join(LEGGED_GYM_ROOT_DIR, 'logs', train_cfg.runner.experiment_name)
+        load_run_dir = os.path.join(log_root, args.load_run)
+        auto_config_path = os.path.join(load_run_dir, 'config.yaml')
+        if os.path.exists(auto_config_path):
+            config_file = auto_config_path
+            print(f"\nAuto-detected config file: {config_file}")
+    
+    # Load and apply custom YAML config if provided or auto-detected
+    if config_file:
+        print(f"\n{'='*60}")
+        print(f"Loading custom configuration from: {config_file}")
+        print(f"{'='*60}")
+        
+        yaml_config = load_yaml_config(config_file)
+        
+        # Separate env and train configs
+        env_config_keys = ['asset', 'env', 'init_state', 'control', 'commands', 
+                          'terrain', 'noise', 'domain_rand', 'rewards', 'normalization',
+                          'viewer', 'sim', 'safety', 'curriculum']
+        train_config_keys = ['algorithm', 'runner', 'policy', 'seed']
+        
+        # Update env_cfg
+        env_updates = {k: v for k, v in yaml_config.items() if k in env_config_keys}
+        if env_updates:
+            print("\nUpdating env_cfg:")
+            update_cfg_from_dict(env_cfg, env_updates)
+        
+        # Update train_cfg
+        train_updates = {k: v for k, v in yaml_config.items() if k in train_config_keys}
+        if train_updates:
+            print("\nUpdating train_cfg:")
+            update_cfg_from_dict(train_cfg, train_updates)
+        
+        print(f"\n{'='*60}")
+        print("Configuration loaded from YAML")
+        print(f"{'='*60}\n")
+    
     # override some parameters for testing
     env_cfg.env.num_envs = min(env_cfg.env.num_envs, 1)
     env_cfg.sim.max_gpu_contact_pairs = 2**10
@@ -103,13 +179,10 @@ def play(args):
         
         # Write header - only log observations for a single frame (not stacked)
         header = ['timestep']
-        # Observation components (only first num_obs from single frame)
         header.extend([f'obs_{i}' for i in range(num_obs)])
-        # Action components
         header.extend([f'action_{i}' for i in range(env.num_actions)])
-        # State information
-        header.extend([f'dof_pos_{i}' for i in range(env.num_dof)])
-        header.extend([f'dof_vel_{i}' for i in range(env.num_dof)])
+        header.extend([f'q_{i}' for i in range(env.num_dof)])
+        header.extend([f'dq_{i}' for i in range(env.num_dof)])
         header.extend([f'torque_{i}' for i in range(env.num_dof)])
         
         csv_writer.writerow(header)
@@ -147,7 +220,7 @@ def play(args):
         # print(f'Action: {actions[0]}') # Print action for first robot
         
         if FIX_COMMAND:
-            env.commands[:, 0] = 0.2    # 1.0
+            env.commands[:, 0] = 0.1    # 1.0
             env.commands[:, 1] = 0.
             env.commands[:, 2] = 0.
             env.commands[:, 3] = 0.
