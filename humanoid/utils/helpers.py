@@ -237,6 +237,12 @@ def get_args():
             "action": "store_true",
             "default": False,
             "help": "Enable debug mode, save obs, actions to csv",
+        },
+        {
+            "name": "--config_file",
+            "type": str,
+            "default": None,
+            "help": "Path to YAML configuration file to override default settings",
         }
     ]
     # parse arguments

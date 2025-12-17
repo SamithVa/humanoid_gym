@@ -31,6 +31,7 @@
 
 
 import os
+import yaml
 from typing import Tuple
 from datetime import datetime
 
@@ -147,6 +148,14 @@ class TaskRegistry():
         train_cfg_dict = class_to_dict(train_cfg)
         env_cfg_dict = class_to_dict(self.env_cfg_for_wandb)
         all_cfg = {**train_cfg_dict, **env_cfg_dict}
+        
+        # Save config as YAML file in log directory
+        if log_dir is not None:
+            os.makedirs(log_dir, exist_ok=True)
+            config_path = os.path.join(log_dir, 'config.yaml')
+            with open(config_path, 'w') as f:
+                yaml.dump(all_cfg, f, default_flow_style=False, sort_keys=False)
+            print(f"Configuration saved to: {config_path}")
         
         runner_class = eval(train_cfg_dict["runner_class_name"])
         runner = runner_class(env, all_cfg, log_dir, device=args.rl_device)
